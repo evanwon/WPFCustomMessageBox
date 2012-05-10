@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFCustomMessageBox", "WPFCustomMessageBox\WPFCustomMessageBox.csproj", "{ED02D418-7C0E-4E6C-99A9-BE4357122AE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMessageBox Demo", "CustomMessageBox\CustomMessageBox Demo.csproj", "{BEB8F894-9C79-4D30-8061-C5570C1B159D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMessageBox Demo", "CustomMessageBoxDemo\CustomMessageBox Demo.csproj", "{BEB8F894-9C79-4D30-8061-C5570C1B159D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
