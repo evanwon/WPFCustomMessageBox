@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CustomMessageBoxDemo")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("WPF Custom MessageBox Demo")]
+[assembly: AssemblyDescription("Demonstrates the functionality and usage of the WPF Custom MessageBox library.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("CustomMessageBoxDemo")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Copyright © 2012 Evan Wondrasek")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

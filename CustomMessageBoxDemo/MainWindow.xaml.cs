@@ -62,7 +62,7 @@ namespace CustomMessageBoxDemo
 
         private void button_MessageWithCaptionButtonImageNew_Click(object sender, RoutedEventArgs e)
         {
-            CustomMessageBox.ShowCustomYesNo("Hi", "bye", "hello", "goodbye", MessageBoxImage.Asterisk);
+            CustomMessageBox.ShowYesNo("Hi", "bye", "hello", "goodbye", MessageBoxImage.Asterisk);
         }
     }
 }
