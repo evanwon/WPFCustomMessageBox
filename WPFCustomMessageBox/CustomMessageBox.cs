@@ -127,7 +127,7 @@ namespace WPFCustomMessageBox
         /// <param name="okButtonText">A System.String that specifies the text to display within the OK button.</param>
         /// <param name="icon">A System.Windows.MessageBoxImage value that specifies the icon to display.</param>
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
-        public static MessageBoxResult ShowCustomOK(string messageBoxText, string caption, string okButtonText, MessageBoxImage icon)
+        public static MessageBoxResult ShowOK(string messageBoxText, string caption, string okButtonText, MessageBoxImage icon)
         {
             CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, MessageBoxButton.OK, icon);
             msg.OKButtonText = okButtonText;
