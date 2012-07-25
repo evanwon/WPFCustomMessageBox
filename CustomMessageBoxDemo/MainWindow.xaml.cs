@@ -57,12 +57,30 @@ namespace CustomMessageBoxDemo
 
         private void button_MessageWithCaptionButtonImage_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("This is a message.", "This is a caption", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
         }
 
         private void button_MessageWithCaptionButtonImageNew_Click(object sender, RoutedEventArgs e)
         {
-            CustomMessageBox.ShowYesNo("Hi", "bye", "hello", "goodbye", MessageBoxImage.Asterisk);
+            CustomMessageBox.Show("This is a message.", "This is a caption", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = CustomMessageBox.ShowYesNoCancel(
+                "You have unsaved changes.",
+                "Unsaved Changes!",
+                "Evan Wondrasek",
+                "Don't Save",
+                "Cancel",
+                MessageBoxImage.Exclamation);
+
+            Console.WriteLine(result);
         }
     }
 }

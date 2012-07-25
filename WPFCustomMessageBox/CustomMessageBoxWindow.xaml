@@ -8,6 +8,13 @@
         ShowInTaskbar="False" Topmost="True"
         ResizeMode="NoResize" SizeToContent="WidthAndHeight"
         Title="" MinHeight="155" MaxWidth="470" MinWidth="154">
+    <Window.Resources>
+        <!-- This removes the dotted line visual style when the button is focused -->
+        <Style TargetType="Button">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

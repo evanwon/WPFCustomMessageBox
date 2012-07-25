@@ -2,16 +2,20 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="296" Width="550" Loaded="Window_Loaded">
     <Grid>
-        <Button Content="Standard Message" Height="23" HorizontalAlignment="Left" Margin="12,71,0,0" Name="button_StandardMessage" VerticalAlignment="Top" Width="102" Click="button_StandardMessage_Click"/>
-        <Button Content="Standard Message (new)" Height="23" HorizontalAlignment="Left" Margin="271,71,0,0" Name="button_StandardMessageNew" VerticalAlignment="Top" Width="100" Click="button_StandardMessageNew_Click"/>
-        <Button Content="Message + Caption" Height="23" HorizontalAlignment="Left" Margin="12,100,0,0" Name="button_MessageWithCaption" VerticalAlignment="Top" Width="102" Click="button_MessageWithCaption_Click"/>
-        <Button Content="Message + Caption (new)" Height="23" HorizontalAlignment="Left" Margin="271,100,0,0" Name="button_MessageWithCaptionNew" VerticalAlignment="Top" Width="100" Click="button_MessageWithCaptionNew_Click"/>
+        <Button Content="Standard Message" Height="23" HorizontalAlignment="Left" Margin="12,71,0,0" Name="button_StandardMessage" VerticalAlignment="Top" Width="125" Click="button_StandardMessage_Click"/>
+        <Button Content="Standard Message (new)" Height="23" HorizontalAlignment="Left" Margin="271,71,0,0" Name="button_StandardMessageNew" VerticalAlignment="Top" Width="151" Click="button_StandardMessageNew_Click"/>
+        <Button Content="Message + Caption" Height="23" HorizontalAlignment="Left" Margin="12,100,0,0" Name="button_MessageWithCaption" VerticalAlignment="Top" Width="125" Click="button_MessageWithCaption_Click"/>
+        <Button Content="Message + Caption (new)" Height="23" HorizontalAlignment="Left" Margin="271,100,0,0" Name="button_MessageWithCaptionNew" VerticalAlignment="Top" Width="151" Click="button_MessageWithCaptionNew_Click"/>
 
         <Button Content="Message + Caption + Button" Height="23" HorizontalAlignment="Left" Margin="12,129,0,0" Name="button_MessageWithCaptionAndButton" VerticalAlignment="Top" Width="Auto" Click="button_MessageWithCaptionAndButton_Click" />
         <Button Content="Message + Caption + Button (new)" Height="23" HorizontalAlignment="Left" Margin="271,129,0,0" Name="button_MessageWithCaptionAndButtonNew" VerticalAlignment="Top" Width="Auto" Click="button_MessageWithCaptionAndButtonNew_Click" />
         <Button Content="Message + Caption + Button + Image" Height="23" HorizontalAlignment="Left" Margin="12,158,0,0" Name="button_MessageWithCaptionButtonImage" VerticalAlignment="Top" Width="Auto" Click="button_MessageWithCaptionButtonImage_Click" />
-        <Button Content="Message + Caption + Button | Image(new)" Height="23" HorizontalAlignment="Left" Margin="271,158,0,0" Name="button_MessageWithCaptionButtonImageNew" VerticalAlignment="Top" Width="Auto" Click="button_MessageWithCaptionButtonImageNew_Click" />
+        <Button Content="Message + Caption + Button + Image(new)" Height="23" HorizontalAlignment="Left" Margin="271,158,0,0" Name="button_MessageWithCaptionButtonImageNew" VerticalAlignment="Top" Width="Auto" Click="button_MessageWithCaptionButtonImageNew_Click" />
+        
+        <TextBlock Height="33" HorizontalAlignment="Left" Margin="16,29,0,0" Name="textBlock1" FontSize="24" VerticalAlignment="Top" Width="122">Standard</TextBlock>
+        <TextBlock FontSize="24" Height="33" HorizontalAlignment="Left" Margin="271,29,0,0" Name="textBlock2" VerticalAlignment="Top" Width="164">Evan's Version</TextBlock>
+        <Button Content="Custom Text" Height="23" HorizontalAlignment="Left" Margin="271,187,0,0" Name="button1" VerticalAlignment="Top" Width="Auto" Click="button1_Click" />
     </Grid>
 </Window>
