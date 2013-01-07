@@ -1,7 +1,7 @@
-WPF-Custom-MessageBox
+WPFCustomMessageBox
 =====================
 
-*WPF Custom MessageBox* is a WPF clone of the native Windows/.NET MessageBox with extra features like custom button text.
+*WPFCustomMessageBox* is a WPF clone of the native Windows/.NET MessageBox with extra features like custom button text.
 
 I created this library because I wanted to use action verbs for my MessageBox buttons to [help users better understand the functionality of the buttons](http://ux.stackexchange.com/a/9960/12349). With this library, you can offer your users button descriptions like `Save/Don't Save` or `Shutdown Reactor/Eject Spent Fuel Rods` rather than the standard `OK/Cancel` or `Yes/No` (although you can still use those too, if you like.
 
