@@ -16,14 +16,14 @@ WPFCustomMessageBox uses static methods just like the standard .NET MessageBox, 
 **Standard .NET Message Box**
 
 
-```
+```csharp
 MessageBox.Show("Hello World!", "This is the title of the MessageBox", MessageBoxButton.OKCancel);
 ```
 
 **WPFCustomMessageBox Equivalent**
 
 
-```
+```csharp
 using WPFCustomMessageBox;
 
 CustomMessageBox.Show("Hello World!", "This is the title of the MessageBox", MessageBoxButton.OKCancel);
@@ -31,7 +31,7 @@ CustomMessageBox.Show("Hello World!", "This is the title of the MessageBox", Mes
 
 **Adding custom button text to WPFCustomMessageBox**
 
-```
+```csharp
 using WPFCustomMessageBox;
 
 CustomMessageBox.ShowOKCancel(
