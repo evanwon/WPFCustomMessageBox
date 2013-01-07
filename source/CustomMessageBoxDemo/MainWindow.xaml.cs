@@ -46,7 +46,11 @@ namespace CustomMessageBoxDemo
 
         private void button_MessageWithCaptionButtonImage_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This is a message.", "This is a caption", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+            MessageBox.Show(
+                "Are you sure you want to eject the nuclear fuel rods?",
+                "Confirm Fuel Ejection",
+                MessageBoxButton.OKCancel,
+                MessageBoxImage.Exclamation);
         }
 
         private void button_MessageWithCaptionButtonImageNew_Click(object sender, RoutedEventArgs e)
@@ -61,13 +65,13 @@ namespace CustomMessageBoxDemo
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result =
-                CustomMessageBox.ShowOKCancel(
-                    "Are you sure you want to eject the nuclear fuel rods?",
-                    "Confirm Fuel Ejection",
-                    "Eject Fuel Rods",
-                    "Don't do it!",
-                    MessageBoxImage.Exclamation);
+            MessageBoxResult result = CustomMessageBox.ShowYesNoCancel(
+                "You have unsaved changes.",
+                "Unsaved Changes!",
+                "Evan Wondrasek",
+                "Don't Save",
+                "Cancel",
+                MessageBoxImage.Exclamation);
 
             Console.WriteLine(result);
         }
