@@ -15,7 +15,7 @@
         <Button Content="Message + Caption + Button + Image(new)" Height="23" HorizontalAlignment="Left" Margin="271,158,0,0" Name="button_MessageWithCaptionButtonImageNew" VerticalAlignment="Top" Width="Auto" Click="button_MessageWithCaptionButtonImageNew_Click" />
         
         <TextBlock Height="33" HorizontalAlignment="Left" Margin="16,29,0,0" Name="textBlock1" FontSize="24" VerticalAlignment="Top" Width="122">Standard</TextBlock>
-        <TextBlock FontSize="24" Height="33" HorizontalAlignment="Left" Margin="271,29,0,0" Name="textBlock2" VerticalAlignment="Top" Width="164">Evan's Version</TextBlock>
+        <TextBlock FontSize="24" HorizontalAlignment="Left" Margin="271,29,0,0" VerticalAlignment="Top">Custom Version</TextBlock>
         <Button Content="Custom Text" Height="23" HorizontalAlignment="Left" Margin="271,187,0,0" Name="button1" VerticalAlignment="Top" Width="Auto" Click="button1_Click" />
     </Grid>
 </Window>

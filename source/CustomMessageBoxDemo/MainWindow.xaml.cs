@@ -61,13 +61,13 @@ namespace CustomMessageBoxDemo
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = CustomMessageBox.ShowYesNoCancel(
-                "You have unsaved changes.",
-                "Unsaved Changes!",
-                "Evan Wondrasek",
-                "Don't Save",
-                "Cancel",
-                MessageBoxImage.Exclamation);
+            MessageBoxResult result =
+                CustomMessageBox.ShowOKCancel(
+                    "Are you sure you want to eject the nuclear fuel rods?",
+                    "Confirm Fuel Ejection",
+                    "Eject Fuel Rods",
+                    "Don't do it!",
+                    MessageBoxImage.Exclamation);
 
             Console.WriteLine(result);
         }

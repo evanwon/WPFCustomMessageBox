@@ -56,3 +56,4 @@ The WPFCustomMessageBox library provides customizable equivalents of all .NET Me
 ## todo ##
 
 * Create Nuget package
+* i18n support (especially for languages that read right-to-left)
