@@ -11,6 +11,8 @@ The WPFCustomMessageBox message boxes return [standard .NET MessageBoxResults](h
 
 This documentation is still in progress, so in the meantime you can explore the `CustomMessageBoxDemo` project which should have a variety of demos.
 
+You can grab the compiled library in the `downloads` folder and add them to your project just like a normal .NET library.
+
 WPFCustomMessageBox uses static methods just like the standard .NET MessageBox, so you can plug-and-play the new library without modifying any code. When you want to add custom text, just use the overloaded methods.
 
 **Standard .NET Message Box**
