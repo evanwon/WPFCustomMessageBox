@@ -43,6 +43,8 @@ CustomMessageBox.ShowOKCancel(
     "Don't do it!");
 ```
 
+**Custom Button Methods**
+
 The WPFCustomMessageBox library provides customizable equivalents of all .NET MessageBox button types:
 
 * `CustomMessageBox.Show()` - Standard MessageBox
