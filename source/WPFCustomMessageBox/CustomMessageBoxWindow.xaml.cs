@@ -8,13 +8,78 @@ namespace WPFCustomMessageBox
     /// </summary>
     internal partial class CustomMessageBoxWindow : Window
     {
-        internal string Caption { get { return this.Title; } set { this.Title = value; } }
-        internal string Message { get { return TextBlock_Message.Text; } set { TextBlock_Message.Text = value; } }
-        internal string OKButtonText { get { return TextBlock_OK.Text; } set { TextBlock_OK.Text = value; } }
-        internal string CancelButtonText { get { return TextBlock_Cancel.Text; } set { TextBlock_Cancel.Text = value; } }
-        internal string YesButtonText { get { return TextBlock_Yes.Text; } set { TextBlock_Yes.Text = value; } }
-        internal string NoButtonText { get { return TextBlock_No.Text; } set { TextBlock_No.Text = value; } }
-        
+        internal string Caption
+        {
+            get
+            {
+                return Title;
+            }
+            set
+            {
+                Title = value;
+            }
+        }
+
+        internal string Message
+        {
+            get
+            {
+                return TextBlock_Message.Text;
+            }
+            set
+            {
+                TextBlock_Message.Text = value;
+            }
+        }
+
+        internal string OkButtonText
+        {
+            get
+            {
+                return Label_Ok.Content.ToString();
+            }
+            set
+            {
+                Label_Ok.Content = value.TryAddKeyboardAccellerator();
+            }
+        }
+
+        internal string CancelButtonText
+        {
+            get
+            {
+                return Label_Cancel.Content.ToString();
+            }
+            set
+            {
+                Label_Cancel.Content = value.TryAddKeyboardAccellerator();
+            }
+        }
+
+        internal string YesButtonText
+        {
+            get
+            {
+                return Label_Yes.Content.ToString();
+            }
+            set
+            {
+                Label_Yes.Content = value.TryAddKeyboardAccellerator();
+            }
+        }
+
+        internal string NoButtonText
+        {
+            get
+            {
+                return Label_No.Content.ToString();
+            }
+            set
+            {
+                Label_No.Content = value.TryAddKeyboardAccellerator();
+            }
+        }
+
         public MessageBoxResult Result { get; set; }
 
         internal CustomMessageBoxWindow(string message)
@@ -142,25 +207,25 @@ namespace WPFCustomMessageBox
         private void Button_OK_Click(object sender, RoutedEventArgs e)
         {
             Result = MessageBoxResult.OK;
-            this.Close();
+            Close();
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
             Result = MessageBoxResult.Cancel;
-            this.Close();
+            Close();
         }
 
         private void Button_Yes_Click(object sender, RoutedEventArgs e)
         {
             Result = MessageBoxResult.Yes;
-            this.Close();
+            Close();
         }
 
         private void Button_No_Click(object sender, RoutedEventArgs e)
         {
             Result = MessageBoxResult.No;
-            this.Close();
+            Close();
         }        
     }
 }

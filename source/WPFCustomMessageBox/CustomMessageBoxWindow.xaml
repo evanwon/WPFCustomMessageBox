@@ -7,14 +7,9 @@
         Icon="blankicon.ico"
         ShowInTaskbar="False" Topmost="True"
         ResizeMode="NoResize" SizeToContent="WidthAndHeight"
+        TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="ClearType" UseLayoutRounding="True"
         Title="" MinHeight="155" MaxWidth="470" MinWidth="154">
-    <Window.Resources>
-        <!-- This removes the dotted line visual style when the button is focused -->
-        <Style TargetType="Button">
-            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        </Style>
-    </Window.Resources>
-    
+    <!-- todo: The TextOptions properties above fix a minor blurry image issue, but are only compatible with >= .NET 4.0 -->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -29,22 +24,35 @@
         </Grid>
         <Grid Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" MinHeight="49">
             <DockPanel Margin="5,0">
+                
+                <!-- Cancel Button -->
                 <Button Name="Button_Cancel" MinWidth="88" MaxWidth="160" Height="26" Margin="5,0" HorizontalAlignment="Right" Visibility="Collapsed"
                         DockPanel.Dock="Right" Click="Button_Cancel_Click">
-                    <TextBlock Name="TextBlock_Cancel" TextAlignment="Center" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="3,0">Cancel</TextBlock>
+                    <Label Name="Label_Cancel" Padding="0" Margin="10,0">_Cancel</Label>
                 </Button>
+                <!-- End Cancel Button -->
+                
+                <!-- No Button -->
                 <Button Name="Button_No" MinWidth="88" MaxWidth="160" Height="26" Margin="5,0" HorizontalAlignment="Right" Visibility="Collapsed"
                         DockPanel.Dock="Right" Click="Button_No_Click">
-                    <TextBlock Name="TextBlock_No" TextAlignment="Center" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="3,0">No</TextBlock>
+                    <Label Name="Label_No" Padding="0" Margin="10,0">_No</Label>
                 </Button>
+                <!-- End No Button -->
+                
+                <!-- Yes Button -->
                 <Button Name="Button_Yes" MinWidth="88" MaxWidth="160" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="Collapsed"
                         DockPanel.Dock="Right" Click="Button_Yes_Click">
-                    <TextBlock Name="TextBlock_Yes" TextAlignment="Center" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="3,0">Yes</TextBlock>
+                    <Label Name="Label_Yes" Padding="0" Margin="10,0">_Yes</Label>
                 </Button>
-                <Button Name="Button_OK" MinWidth="88" MaxWidth="160" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right"
+                <!-- End Yes Button -->
+                
+                <!-- OK Button -->
+                <Button Name="Button_OK" MinWidth="88" MaxWidth="160" Margin="35,0,5,0" HorizontalAlignment="Right" Height="26"
                         Click="Button_OK_Click">
-                    <TextBlock Name="TextBlock_OK" TextAlignment="Center" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="3,0">OK</TextBlock>
+                    <Label Name="Label_Ok" Padding="0" Margin="10,0">_OK</Label>
                 </Button>
+                <!-- End OK Button -->
+                
             </DockPanel>
         </Grid>
     </Grid>

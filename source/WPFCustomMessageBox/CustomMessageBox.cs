@@ -112,7 +112,7 @@ namespace WPFCustomMessageBox
         public static MessageBoxResult ShowOK(string messageBoxText, string caption, string okButtonText)
         {
             CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, MessageBoxButton.OK);
-            msg.OKButtonText = okButtonText;
+            msg.OkButtonText = okButtonText;
 
             msg.ShowDialog();
             
@@ -130,7 +130,7 @@ namespace WPFCustomMessageBox
         public static MessageBoxResult ShowOK(string messageBoxText, string caption, string okButtonText, MessageBoxImage icon)
         {
             CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, MessageBoxButton.OK, icon);
-            msg.OKButtonText = okButtonText;
+            msg.OkButtonText = okButtonText;
 
             msg.ShowDialog();
 
@@ -149,7 +149,7 @@ namespace WPFCustomMessageBox
         public static MessageBoxResult ShowOKCancel(string messageBoxText, string caption, string okButtonText, string cancelButtonText)
         {
             CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, MessageBoxButton.OKCancel);
-            msg.OKButtonText = okButtonText;
+            msg.OkButtonText = okButtonText;
             msg.CancelButtonText = cancelButtonText;
 
             msg.ShowDialog();
@@ -170,7 +170,7 @@ namespace WPFCustomMessageBox
         public static MessageBoxResult ShowOKCancel(string messageBoxText, string caption, string okButtonText, string cancelButtonText, MessageBoxImage icon)
         {
             CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, MessageBoxButton.OKCancel, icon);
-            msg.OKButtonText = okButtonText;
+            msg.OkButtonText = okButtonText;
             msg.CancelButtonText = cancelButtonText;
 
             msg.ShowDialog();
