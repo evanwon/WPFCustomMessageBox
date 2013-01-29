@@ -1,5 +1,5 @@
 WPFCustomMessageBox
-===================== sdafas f
+=====================
 
 *WPFCustomMessageBox* is a WPF clone of the native Windows/.NET MessageBox with extra features like custom button text.
 
