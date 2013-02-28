@@ -26,7 +26,7 @@
             <DockPanel Margin="5,0">
                 
                 <!-- Cancel Button -->
-                <Button Name="Button_Cancel" MinWidth="88" MaxWidth="160" Height="26" Margin="5,0" HorizontalAlignment="Right" Visibility="Collapsed"
+                <Button Name="Button_Cancel" MinWidth="88" MaxWidth="160" Height="26" Margin="5,0" HorizontalAlignment="Right" Visibility="Collapsed" IsCancel="True"
                         DockPanel.Dock="Right" Click="Button_Cancel_Click">
                     <Label Name="Label_Cancel" Padding="0" Margin="10,0">_Cancel</Label>
                 </Button>
