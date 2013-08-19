@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows;
 
 namespace WPFCustomMessageBox
@@ -81,6 +82,11 @@ namespace WPFCustomMessageBox
         }
 
         public MessageBoxResult Result { get; set; }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            IconHelper.RemoveIcon(this);
+        }
 
         internal CustomMessageBoxWindow(string message)
         {

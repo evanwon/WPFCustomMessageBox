@@ -2,10 +2,9 @@
         x:ClassModifier="internal"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterOwner"
         WindowStyle="SingleBorderWindow"
-        Icon="blankicon.ico"
-        ShowInTaskbar="False" Topmost="True"
+        ShowInTaskbar="False"
         ResizeMode="NoResize" SizeToContent="WidthAndHeight"
         TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="ClearType" UseLayoutRounding="True"
         Title="" MinHeight="155" MaxWidth="470" MinWidth="154">
