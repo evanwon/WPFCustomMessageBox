@@ -55,9 +55,8 @@ The WPFCustomMessageBox library provides customizable equivalents of all .NET Me
 * `CustomMessageBox.ShowYesNo()` - MessageBox with customizable "Yes" and "No" buttons. Returns either `MessageBoxResult.Yes` or `MessageBoxResult.No`.
 * `CustomMessageBox.ShowYesNoCancel()` - MessageBox with customizable "Yes", "No", and "Cancel" buttons. Returns either `MessageBoxResult.Yes`, `MessageBoxResult.No`, or `MessageBoxResult.Cancel`.
 
-## todo ##
+## Todo ##
 
-* Create Nuget package
 * i18n support (especially for languages that read right-to-left)
 
 ## License ##
