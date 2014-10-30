@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>WPFCustomMessageBox</id>
+        <version>1.0.6</version>
+        <title>WPF Custom Message Box</title>
+        <authors>Evan Wondrasek</authors>
+        <licenseUrl>https://github.com/evanwon/WPFCustomMessageBox/blob/master/README.md</licenseUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A WPF clone of the native Windows/.NET MessageBox with extra features like custom button text.</description>
+        <summary>Extended WPF MessageBox</summary>
+        <releaseNotes>Fixed blurry images</releaseNotes>
+        <copyright>Evan Wondrasek</copyright>
+        <language>en-US</language>
+        <tags>wpf messagebox</tags>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.0" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="lib\net40\WPFCustomMessageBox_dotNET40.dll" target="lib\net40\WPFCustomMessageBox_dotNET40.dll" />
+    </files>
+</package>
