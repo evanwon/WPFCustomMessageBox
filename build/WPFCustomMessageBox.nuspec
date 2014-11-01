@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>WPFCustomMessageBox</id>
+        <version>1.0.7</version>
+        <title>WPF Custom MessageBox</title>
+        <authors>Evan Wondrasek / Apricity Software LLC</authors>
+        <licenseUrl>https://github.com/evanwon/WPFCustomMessageBox/blob/master/README.md</licenseUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A WPF clone of the native Windows/.NET MessageBox with extra features like custom button text.</description>
+        <summary />
+        <releaseNotes>Added XML documentation file for IntelliSense</releaseNotes>
+        <copyright>Evan Wondrasek / Apricity Software LLC</copyright>
+        <language>en-US</language>
+        <tags>wpf messagebox</tags>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="PresentationCore" targetFramework="" />
+            <frameworkAssembly assemblyName="PresentationFramework" targetFramework="" />
+            <frameworkAssembly assemblyName="System" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Core" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Drawing" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
+            <frameworkAssembly assemblyName="WindowsBase" targetFramework="" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="..\source\WPFCustomMessageBox\bin\Release\WPFCustomMessageBox.dll" target="lib\WPFCustomMessageBox.dll" />
+        <file src="..\source\WPFCustomMessageBox\bin\Release\WPFCustomMessageBox.XML" target="lib\WPFCustomMessageBox.XML" />
+    </files>
+</package>
