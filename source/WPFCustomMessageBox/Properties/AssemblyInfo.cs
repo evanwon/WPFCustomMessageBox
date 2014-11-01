@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("WPFCustomMessageBox")]
-[assembly: AssemblyCopyright("Copyright © 2013 Evan Wondrasek")]
+[assembly: AssemblyCopyright("Copyright © 2013 Evan Wondrasek / Apricity Software LLC")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
