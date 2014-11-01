@@ -9,11 +9,13 @@ I created this library because I wanted to use verbs for my MessageBox buttons t
 
 The WPFCustomMessageBox message boxes return [standard .NET MessageBoxResults](http://msdn.microsoft.com/en-us/library/system.windows.messageboxresult%28v=vs.100%29.aspx).
 
+## Downloading and Installing ##
+
+[WPFCustomMessageBox is available via NuGet](https://www.nuget.org/packages/WPFCustomMessageBox/).
+
 ## Usage ##
 
 This documentation is still in progress, so in the meantime you can explore the `CustomMessageBoxDemo` project which should have a variety of demos.
-
-You can grab the compiled library in the `downloads` folder and add them to your project just like a normal .NET library.
 
 WPFCustomMessageBox uses static methods just like the standard .NET MessageBox, so you can plug-and-play the new library without modifying any code. When you want to add custom text, just use the special methods outlined below.
 
@@ -63,7 +65,7 @@ The WPFCustomMessageBox library provides customizable equivalents of all .NET Me
 
 **The MIT License**
 
-Copyright (c) 2013 Evan Wondrasek
+Copyright (c) 2013 Evan Wondrasek / Apricity Software LLC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
