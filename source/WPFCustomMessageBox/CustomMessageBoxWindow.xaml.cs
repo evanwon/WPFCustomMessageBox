@@ -82,54 +82,39 @@ namespace WPFCustomMessageBox
 
         public MessageBoxResult Result { get; set; }
 
-        internal CustomMessageBoxWindow(string message)
+        private CustomMessageBoxWindow()
         {
             InitializeComponent();
 
+        }
+
+        internal CustomMessageBoxWindow(string message) : this()
+        {
             Message = message;
             Image_MessageBox.Visibility = System.Windows.Visibility.Collapsed;
             DisplayButtons(MessageBoxButton.OK);
         }
 
-        internal CustomMessageBoxWindow(string message, string caption)
+        internal CustomMessageBoxWindow(string message, string caption) : this(message)
         {
-            InitializeComponent();
-
-            Message = message;
             Caption = caption;
-            Image_MessageBox.Visibility = System.Windows.Visibility.Collapsed;
             DisplayButtons(MessageBoxButton.OK);
         }
 
-        internal CustomMessageBoxWindow(string message, string caption, MessageBoxButton button)
+        internal CustomMessageBoxWindow(string message, string caption, MessageBoxButton button) : this(message, caption)
         {
-            InitializeComponent();
-
-            Message = message;
-            Caption = caption;
-            Image_MessageBox.Visibility = System.Windows.Visibility.Collapsed;
-
             DisplayButtons(button);
         }
 
-        internal CustomMessageBoxWindow(string message, string caption, MessageBoxImage image)
+        internal CustomMessageBoxWindow(string message, string caption, MessageBoxImage image) : this(message, caption)
         {
-            InitializeComponent();
-
-            Message = message;
-            Caption = caption;
             DisplayImage(image);
             DisplayButtons(MessageBoxButton.OK);
         }
 
-        internal CustomMessageBoxWindow(string message, string caption, MessageBoxButton button, MessageBoxImage image)
+        internal CustomMessageBoxWindow(string message, string caption, MessageBoxButton button, MessageBoxImage image) :
+            this(message, caption, image)
         {
-            InitializeComponent();
-
-            Message = message;
-            Caption = caption;
-            Image_MessageBox.Visibility = System.Windows.Visibility.Collapsed;
-            
             DisplayButtons(button);
             DisplayImage(image);
         }
