@@ -135,6 +135,7 @@ namespace WPFCustomMessageBox
                 case MessageBoxButton.OKCancel:
                     // Hide all but OK, Cancel
                     Button_OK.Visibility = System.Windows.Visibility.Visible;
+                    Button_OK.IsDefault = true;
                     Button_OK.Focus();
                     Button_Cancel.Visibility = System.Windows.Visibility.Visible;
 
@@ -145,15 +146,19 @@ namespace WPFCustomMessageBox
                     // Hide all but Yes, No
                     Button_Yes.Visibility = System.Windows.Visibility.Visible;
                     Button_Yes.Focus();
+                    Button_Yes.IsDefault = true;
                     Button_No.Visibility = System.Windows.Visibility.Visible;
+                    Button_No.IsCancel = true;
 
                     Button_OK.Visibility = System.Windows.Visibility.Collapsed;
                     Button_Cancel.Visibility = System.Windows.Visibility.Collapsed;
+                    Button_Cancel.IsCancel = false;
                     break;
                 case MessageBoxButton.YesNoCancel:
                     // Hide only OK
                     Button_Yes.Visibility = System.Windows.Visibility.Visible;
                     Button_Yes.Focus();
+                    Button_Yes.IsDefault = true;
                     Button_No.Visibility = System.Windows.Visibility.Visible;
                     Button_Cancel.Visibility = System.Windows.Visibility.Visible;
 
@@ -162,6 +167,7 @@ namespace WPFCustomMessageBox
                 default:
                     // Hide all but OK
                     Button_OK.Visibility = System.Windows.Visibility.Visible;
+                    Button_OK.IsDefault = true;
                     Button_OK.Focus();
 
                     Button_Yes.Visibility = System.Windows.Visibility.Collapsed;
