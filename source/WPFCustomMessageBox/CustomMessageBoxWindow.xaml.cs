@@ -1,4 +1,7 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows;
 
 namespace WPFCustomMessageBox
@@ -8,6 +11,12 @@ namespace WPFCustomMessageBox
     /// </summary>
     internal partial class CustomMessageBoxWindow : Window
     {
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        private static extern IntPtr GetModuleHandle(string lpModuleName);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern int LoadString(IntPtr hInstance, uint uID, StringBuilder lpBuffer, int nBufferMax);
+
         internal string Caption
         {
             get
@@ -82,54 +91,39 @@ namespace WPFCustomMessageBox
 
         public MessageBoxResult Result { get; set; }
 
-        internal CustomMessageBoxWindow(string message)
+        private CustomMessageBoxWindow()
         {
             InitializeComponent();
+            SetButtonText();
+        }
 
+        internal CustomMessageBoxWindow(string message) : this()
+        {
             Message = message;
             Image_MessageBox.Visibility = System.Windows.Visibility.Collapsed;
             DisplayButtons(MessageBoxButton.OK);
         }
 
-        internal CustomMessageBoxWindow(string message, string caption)
+        internal CustomMessageBoxWindow(string message, string caption) : this(message)
         {
-            InitializeComponent();
-
-            Message = message;
             Caption = caption;
-            Image_MessageBox.Visibility = System.Windows.Visibility.Collapsed;
             DisplayButtons(MessageBoxButton.OK);
         }
 
-        internal CustomMessageBoxWindow(string message, string caption, MessageBoxButton button)
+        internal CustomMessageBoxWindow(string message, string caption, MessageBoxButton button) : this(message, caption)
         {
-            InitializeComponent();
-
-            Message = message;
-            Caption = caption;
-            Image_MessageBox.Visibility = System.Windows.Visibility.Collapsed;
-
             DisplayButtons(button);
         }
 
-        internal CustomMessageBoxWindow(string message, string caption, MessageBoxImage image)
+        internal CustomMessageBoxWindow(string message, string caption, MessageBoxImage image) : this(message, caption)
         {
-            InitializeComponent();
-
-            Message = message;
-            Caption = caption;
             DisplayImage(image);
             DisplayButtons(MessageBoxButton.OK);
         }
 
-        internal CustomMessageBoxWindow(string message, string caption, MessageBoxButton button, MessageBoxImage image)
+        internal CustomMessageBoxWindow(string message, string caption, MessageBoxButton button, MessageBoxImage image) :
+            this(message, caption, image)
         {
-            InitializeComponent();
-
-            Message = message;
-            Caption = caption;
-            Image_MessageBox.Visibility = System.Windows.Visibility.Collapsed;
-            
             DisplayButtons(button);
             DisplayImage(image);
         }
@@ -141,6 +135,7 @@ namespace WPFCustomMessageBox
                 case MessageBoxButton.OKCancel:
                     // Hide all but OK, Cancel
                     Button_OK.Visibility = System.Windows.Visibility.Visible;
+                    Button_OK.IsDefault = true;
                     Button_OK.Focus();
                     Button_Cancel.Visibility = System.Windows.Visibility.Visible;
 
@@ -151,15 +146,19 @@ namespace WPFCustomMessageBox
                     // Hide all but Yes, No
                     Button_Yes.Visibility = System.Windows.Visibility.Visible;
                     Button_Yes.Focus();
+                    Button_Yes.IsDefault = true;
                     Button_No.Visibility = System.Windows.Visibility.Visible;
+                    Button_No.IsCancel = true;
 
                     Button_OK.Visibility = System.Windows.Visibility.Collapsed;
                     Button_Cancel.Visibility = System.Windows.Visibility.Collapsed;
+                    Button_Cancel.IsCancel = false;
                     break;
                 case MessageBoxButton.YesNoCancel:
                     // Hide only OK
                     Button_Yes.Visibility = System.Windows.Visibility.Visible;
                     Button_Yes.Focus();
+                    Button_Yes.IsDefault = true;
                     Button_No.Visibility = System.Windows.Visibility.Visible;
                     Button_Cancel.Visibility = System.Windows.Visibility.Visible;
 
@@ -168,6 +167,7 @@ namespace WPFCustomMessageBox
                 default:
                     // Hide all but OK
                     Button_OK.Visibility = System.Windows.Visibility.Visible;
+                    Button_OK.IsDefault = true;
                     Button_OK.Focus();
 
                     Button_Yes.Visibility = System.Windows.Visibility.Collapsed;
@@ -203,6 +203,65 @@ namespace WPFCustomMessageBox
             Image_MessageBox.Source = icon.ToImageSource();
             Image_MessageBox.Visibility = System.Windows.Visibility.Visible;
         }
+
+        /// <summary>
+        /// Sets the initial button text based on Windows strings
+        /// </summary>
+        private void SetButtonText()
+        {
+            var okText = GetUserString(800);
+            var cancelText = GetUserString(801);
+            var yesText = GetUserString(805);
+            var noText = GetUserString(806);
+
+            if (!string.IsNullOrWhiteSpace(okText))
+            {
+                Button_OK.Content = okText;
+            }
+            if (!string.IsNullOrWhiteSpace(cancelText))
+            {
+                Button_Cancel.Content = cancelText;
+            }
+            if (!string.IsNullOrWhiteSpace(yesText))
+            {
+                Button_Yes.Content = yesText;
+            }
+            if (!string.IsNullOrWhiteSpace(noText))
+            {
+                Button_No.Content = noText;
+            }
+        }
+
+        /// <summary>
+        /// Gets a user string from user32.dll
+        /// </summary>
+        /// <param name="stringId">the id of the string</param>
+        /// <returns>the string or string.empty</returns>
+        /// <remarks>see http://www.tech-archive.net/Archive/Development/microsoft.public.win32.programmer.kernel/2010-02/msg00129.html 
+        /// for list of IDs. Since this is a common technique, MS probably won't change it.</remarks>
+        private static string GetUserString(uint stringId)
+        {
+            var libraryHandle = GetModuleHandle("user32.dll");
+            if (libraryHandle == IntPtr.Zero)
+            {
+                return string.Empty;
+            }
+            var sb = new StringBuilder(1024);
+            var size = LoadString(libraryHandle, stringId, sb, 1024);
+
+            if (size > 0)
+            {
+                // Replace Win32 mnemonic with WPF mnemonic
+                sb.Replace('&', '_');
+
+                return sb.ToString();
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
 
         private void Button_OK_Click(object sender, RoutedEventArgs e)
         {
