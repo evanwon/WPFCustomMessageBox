@@ -209,26 +209,26 @@ namespace WPFCustomMessageBox
         /// </summary>
         private void SetButtonText()
         {
-            var okText = GetUserString(800).TrimStart('&');
-            var cancelText = GetUserString(801).TrimStart('&');
-            var yesText = GetUserString(805).TrimStart('&');
-            var noText = GetUserString(806).TrimStart('&');
+            var okText = GetUserString(800);
+            var cancelText = GetUserString(801);
+            var yesText = GetUserString(805);
+            var noText = GetUserString(806);
 
             if (!string.IsNullOrWhiteSpace(okText))
             {
-                Button_OK.Content = "_" + okText;
+                Button_OK.Content = okText;
             }
             if (!string.IsNullOrWhiteSpace(cancelText))
             {
-                Button_Cancel.Content = "_" + cancelText;
+                Button_Cancel.Content = cancelText;
             }
             if (!string.IsNullOrWhiteSpace(yesText))
             {
-                Button_Yes.Content = "_" + yesText;
+                Button_Yes.Content = yesText;
             }
             if (!string.IsNullOrWhiteSpace(noText))
             {
-                Button_No.Content = "_" + noText;
+                Button_No.Content = noText;
             }
         }
 
@@ -248,7 +248,18 @@ namespace WPFCustomMessageBox
             }
             var sb = new StringBuilder(1024);
             var size = LoadString(libraryHandle, stringId, sb, 1024);
-            return size > 0 ? sb.ToString() : string.Empty;
+
+            if (size > 0)
+            {
+                // Replace Win32 mnemonic with WPF mnemonic
+                sb.Replace('&', '_');
+
+                return sb.ToString();
+            }
+            else
+            {
+                return string.Empty;
+            }
         }
 
 
