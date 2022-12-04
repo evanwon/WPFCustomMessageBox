@@ -68,6 +68,7 @@
       <DependentUpon>CustomMessageBoxWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomMessageBox.cs" />
+    <Compile Include="MessageBoxData.cs" />
     <Compile Include="Util.cs" />
     <Page Include="CustomMessageBoxWindow.xaml">
       <SubType>Designer</SubType>
@@ -97,9 +98,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserControls\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="blankicon.ico" />

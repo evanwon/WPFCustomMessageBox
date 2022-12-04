@@ -20,10 +20,12 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult Show(string messageBoxText)
         {
-            CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText);
-            msg.ShowDialog();
+            var msgData = new MessageBoxData()
+            {
+                Message = messageBoxText
+            };
 
-            return msg.Result;
+            return msgData.ShowMessageBox();
         }
 
         /// <summary>
@@ -34,10 +36,13 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult Show(string messageBoxText, string caption)
         {
-            CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption);
-            msg.ShowDialog();
+            var msgData = new MessageBoxData()
+            {
+                Message = messageBoxText,
+                Caption = caption
+            };
 
-            return msg.Result;
+            return msgData.ShowMessageBox();
         }
 
         /// <summary>
@@ -48,11 +53,13 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult Show(Window owner, string messageBoxText)
         {
-            CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText);
-            msg.Owner = owner;
-            msg.ShowDialog();
+            var msgData = new MessageBoxData()
+            {
+                Message = messageBoxText,
+                Owner = owner
+            };
 
-            return msg.Result;
+            return msgData.ShowMessageBox();
         }
 
         /// <summary>
@@ -64,11 +71,14 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult Show(Window owner, string messageBoxText, string caption)
         {
-            CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption);
-            msg.Owner = owner;
-            msg.ShowDialog();
+            var msgData = new MessageBoxData()
+            {
+                Message = messageBoxText,
+                Caption = caption,
+                Owner = owner
+            };
 
-            return msg.Result;
+            return msgData.ShowMessageBox();
         }
 
         /// <summary>
@@ -80,10 +90,14 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button)
         {
-            CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, button);
-            msg.ShowDialog();
+            var msgData = new MessageBoxData()
+            {
+                Message = messageBoxText,
+                Caption = caption,
+                Buttons = button
+            };
 
-            return msg.Result;
+            return msgData.ShowMessageBox();
         }
 
         /// <summary>
@@ -96,10 +110,15 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button, MessageBoxImage icon)
         {
-            CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, button, icon);
-            msg.ShowDialog();
+            var msgData = new MessageBoxData()
+            {
+                Message = messageBoxText,
+                Caption = caption,
+                Buttons = button,
+                Image = icon
+            };
 
-            return msg.Result;
+            return msgData.ShowMessageBox();
         }
 
         /// <summary>
@@ -111,12 +130,15 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowOK(string messageBoxText, string caption, string okButtonText)
         {
-            CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, MessageBoxButton.OK);
-            msg.OkButtonText = okButtonText;
+            var msgData = new MessageBoxData()
+            {
+                Message = messageBoxText,
+                Caption = caption,
+                Buttons = MessageBoxButton.YesNoCancel,
+                OkButtonCaption = okButtonText
+            };
 
-            msg.ShowDialog();
-            
-            return msg.Result;
+            return msgData.ShowMessageBox();
         }
 
         /// <summary>
@@ -129,12 +151,16 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowOK(string messageBoxText, string caption, string okButtonText, MessageBoxImage icon)
         {
-            CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, MessageBoxButton.OK, icon);
-            msg.OkButtonText = okButtonText;
+            var msgData = new MessageBoxData()
+            {
+                Message = messageBoxText,
+                Caption = caption,
+                Buttons = MessageBoxButton.OK,
+                Image = icon,
+                OkButtonCaption = okButtonText
+            };
 
-            msg.ShowDialog();
-
-            return msg.Result;
+            return msgData.ShowMessageBox();
         }
 
         /// <summary>
@@ -148,13 +174,16 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowOKCancel(string messageBoxText, string caption, string okButtonText, string cancelButtonText)
         {
-            CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, MessageBoxButton.OKCancel);
-            msg.OkButtonText = okButtonText;
-            msg.CancelButtonText = cancelButtonText;
+            var msgData = new MessageBoxData()
+            {
+                Message = messageBoxText,
+                Caption = caption,
+                Buttons = MessageBoxButton.OKCancel,
+                OkButtonCaption = okButtonText,
+                CancelButtonCaption = cancelButtonText
+            };
 
-            msg.ShowDialog();
-            
-            return msg.Result;
+            return msgData.ShowMessageBox();
         }
 
         /// <summary>
@@ -169,13 +198,17 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowOKCancel(string messageBoxText, string caption, string okButtonText, string cancelButtonText, MessageBoxImage icon)
         {
-            CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, MessageBoxButton.OKCancel, icon);
-            msg.OkButtonText = okButtonText;
-            msg.CancelButtonText = cancelButtonText;
+            var msgData = new MessageBoxData()
+            {
+                Message = messageBoxText,
+                Caption = caption,
+                Buttons = MessageBoxButton.OKCancel,
+                Image = icon,
+                OkButtonCaption = okButtonText,
+                CancelButtonCaption = cancelButtonText
+            };
 
-            msg.ShowDialog();
-
-            return msg.Result;
+            return msgData.ShowMessageBox();
         }
 
         /// <summary>
@@ -189,13 +222,16 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowYesNo(string messageBoxText, string caption, string yesButtonText, string noButtonText)
         {
-            CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, MessageBoxButton.YesNo);
-            msg.YesButtonText = yesButtonText;
-            msg.NoButtonText = noButtonText;
+            var msgData = new MessageBoxData()
+            {
+                Message = messageBoxText,
+                Caption = caption,
+                Buttons = MessageBoxButton.YesNo,
+                YesButtonCaption = yesButtonText,
+                NoButtonCaption = noButtonText
+            };
 
-            msg.ShowDialog();
-
-            return msg.Result;
+            return msgData.ShowMessageBox();
         }
 
         /// <summary>
@@ -210,13 +246,17 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowYesNo(string messageBoxText, string caption, string yesButtonText, string noButtonText, MessageBoxImage icon)
         {
-            CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, MessageBoxButton.YesNo, icon);
-            msg.YesButtonText = yesButtonText;
-            msg.NoButtonText = noButtonText;
+            var msgData = new MessageBoxData()
+            {
+                Message = messageBoxText,
+                Caption = caption,
+                Buttons = MessageBoxButton.YesNo,
+                Image = icon,
+                YesButtonCaption = yesButtonText,
+                NoButtonCaption = noButtonText
+            };
 
-            msg.ShowDialog();
-
-            return msg.Result;
+            return msgData.ShowMessageBox();
         }
 
         /// <summary>
@@ -231,14 +271,17 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowYesNoCancel(string messageBoxText, string caption, string yesButtonText, string noButtonText, string cancelButtonText)
         {
-            CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, MessageBoxButton.YesNoCancel);
-            msg.YesButtonText = yesButtonText;
-            msg.NoButtonText = noButtonText;
-            msg.CancelButtonText = cancelButtonText;
+            var msgData = new MessageBoxData()
+            {
+                Message = messageBoxText,
+                Caption = caption,
+                Buttons = MessageBoxButton.YesNoCancel,
+                YesButtonCaption = yesButtonText,
+                NoButtonCaption = noButtonText,
+                CancelButtonCaption = cancelButtonText
+            };
 
-            msg.ShowDialog();
-
-            return msg.Result;
+            return msgData.ShowMessageBox();
         }
 
         /// <summary>
@@ -254,15 +297,18 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowYesNoCancel(string messageBoxText, string caption, string yesButtonText, string noButtonText, string cancelButtonText, MessageBoxImage icon)
         {
-            CustomMessageBoxWindow msg = new CustomMessageBoxWindow(messageBoxText, caption, MessageBoxButton.YesNoCancel, icon);
-            msg.YesButtonText = yesButtonText;
-            msg.NoButtonText = noButtonText;
-            msg.CancelButtonText = cancelButtonText;
+            var msgData = new MessageBoxData()
+            {
+                Message = messageBoxText,
+                Caption = caption,
+                Buttons = MessageBoxButton.YesNoCancel,
+                Image = icon,
+                YesButtonCaption = yesButtonText,
+                NoButtonCaption = noButtonText,
+                CancelButtonCaption = cancelButtonText
+            };
 
-            msg.ShowDialog();
-
-            return msg.Result;
+            return msgData.ShowMessageBox();
         }
-
     }
 }
