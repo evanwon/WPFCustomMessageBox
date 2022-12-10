@@ -17,9 +17,9 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="White" MinHeight="69">
             <DockPanel>
-                <Image Name="Image_MessageBox" Width="32" Height="32" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="30,0,0,0" Visibility="Collapsed"/>
+                <Image Name="Image_MessageBox" Width="32" Height="32" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="30,20,0,0" Visibility="Collapsed" VerticalAlignment="Top"/>
                 <TextBlock Name="TextBlock_Message" TextWrapping="Wrap" MaxWidth="500" Width="Auto"
-                       VerticalAlignment="Center" Margin="12,20,41,15" />
+                       VerticalAlignment="Center" Margin="12,11,41,15" />
             </DockPanel>
         </Grid>
         <Grid Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" MinHeight="49">
