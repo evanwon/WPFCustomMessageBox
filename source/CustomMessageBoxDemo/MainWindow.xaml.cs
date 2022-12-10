@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows;
+using System.Windows.Interop;
+using System.Windows.Media.Imaging;
 using WPFCustomMessageBox;
 
 namespace CustomMessageBoxDemo
@@ -56,6 +59,16 @@ namespace CustomMessageBoxDemo
         private void button_MessageWithCaptionButtonImageNew_Click(object sender, RoutedEventArgs e)
         {
             CustomMessageBox.Show("This is a message.", "This is a caption", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+        }
+
+        private void button_MessageWithCaptionButtonCustomImageNew_Click(object sender, RoutedEventArgs e)
+        {
+            var winLogo = Imaging.CreateBitmapSourceFromHIcon(
+                SystemIcons.Shield.Handle,
+                Int32Rect.Empty,
+                BitmapSizeOptions.FromEmptyOptions());
+
+            CustomMessageBox.Show("This is a message with a windows shield beside it.", "This is a caption", MessageBoxButton.YesNo, winLogo);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

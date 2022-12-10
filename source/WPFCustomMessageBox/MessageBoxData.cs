@@ -35,14 +35,10 @@ namespace WPFCustomMessageBox
         private static Dictionary<MessageBoxImage, Icon> IconLookup { get; } = new Dictionary<MessageBoxImage, Icon>()
         {
             { MessageBoxImage.None, null },
-            { MessageBoxImage.Hand, SystemIcons.Hand },
-            { MessageBoxImage.Stop, SystemIcons.Hand },
-            { MessageBoxImage.Error, SystemIcons.Hand },
+            { MessageBoxImage.Error, SystemIcons.Hand },                // Hand, Stop and Error share the same value '16'
             { MessageBoxImage.Question, SystemIcons.Question },
-            { MessageBoxImage.Exclamation, SystemIcons.Exclamation },
-            { MessageBoxImage.Warning, SystemIcons.Warning },
-            { MessageBoxImage.Asterisk, SystemIcons.Information },
-            { MessageBoxImage.Information, SystemIcons.Information }
+            { MessageBoxImage.Warning, SystemIcons.Warning },           // Exclamation and Warning share the same value '48'
+            { MessageBoxImage.Information, SystemIcons.Information }    // Information and Asterisk share the same value '64'
         };
 
         #endregion
