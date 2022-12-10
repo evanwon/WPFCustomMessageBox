@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using WPFCustomMessageBox;
 
@@ -16,12 +17,12 @@ namespace CustomMessageBoxDemo
 
         private void button_StandardMessage_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\n");
+            MessageBox.Show(string.Join("\n", Enumerable.Repeat("Hello World!", 12)));
         }
 
         private void button_StandardMessageNew_Click(object sender, RoutedEventArgs e)
         {
-            CustomMessageBox.Show("Hello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\n");
+            CustomMessageBox.Show(string.Join("\n", Enumerable.Repeat("Hello World!", 12)));
         }
 
         private void button_MessageWithCaption_Click(object sender, RoutedEventArgs e)
