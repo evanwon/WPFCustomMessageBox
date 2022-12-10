@@ -110,42 +110,42 @@ namespace WPFCustomMessageBox
             {
                 case MessageBoxButton.OKCancel:
                     // Hide all but OK, Cancel
-                    this.Button_OK.Visibility = System.Windows.Visibility.Visible;
+                    this.Button_OK.Visibility = Visibility.Visible;
                     this.Button_OK.Focus();
-                    this.Button_Cancel.Visibility = System.Windows.Visibility.Visible;
+                    this.Button_Cancel.Visibility = Visibility.Visible;
 
-                    this.Button_Yes.Visibility = System.Windows.Visibility.Collapsed;
-                    this.Button_No.Visibility = System.Windows.Visibility.Collapsed;
+                    this.Button_Yes.Visibility = Visibility.Collapsed;
+                    this.Button_No.Visibility = Visibility.Collapsed;
                     break;
 
                 case MessageBoxButton.YesNo:
                     // Hide all but Yes, No
-                    this.Button_Yes.Visibility = System.Windows.Visibility.Visible;
+                    this.Button_Yes.Visibility = Visibility.Visible;
                     this.Button_Yes.Focus();
-                    this.Button_No.Visibility = System.Windows.Visibility.Visible;
+                    this.Button_No.Visibility = Visibility.Visible;
 
-                    this.Button_OK.Visibility = System.Windows.Visibility.Collapsed;
-                    this.Button_Cancel.Visibility = System.Windows.Visibility.Collapsed;
+                    this.Button_OK.Visibility = Visibility.Collapsed;
+                    this.Button_Cancel.Visibility = Visibility.Collapsed;
                     break;
 
                 case MessageBoxButton.YesNoCancel:
                     // Hide only OK
-                    this.Button_Yes.Visibility = System.Windows.Visibility.Visible;
+                    this.Button_Yes.Visibility = Visibility.Visible;
                     this.Button_Yes.Focus();
-                    this.Button_No.Visibility = System.Windows.Visibility.Visible;
-                    this.Button_Cancel.Visibility = System.Windows.Visibility.Visible;
+                    this.Button_No.Visibility = Visibility.Visible;
+                    this.Button_Cancel.Visibility = Visibility.Visible;
 
-                    this.Button_OK.Visibility = System.Windows.Visibility.Collapsed;
+                    this.Button_OK.Visibility = Visibility.Collapsed;
                     break;
 
                 default:
                     // Hide all but OK
-                    this.Button_OK.Visibility = System.Windows.Visibility.Visible;
+                    this.Button_OK.Visibility = Visibility.Visible;
                     this.Button_OK.Focus();
 
-                    this.Button_Yes.Visibility = System.Windows.Visibility.Collapsed;
-                    this.Button_No.Visibility = System.Windows.Visibility.Collapsed;
-                    this.Button_Cancel.Visibility = System.Windows.Visibility.Collapsed;
+                    this.Button_Yes.Visibility = Visibility.Collapsed;
+                    this.Button_No.Visibility = Visibility.Collapsed;
+                    this.Button_Cancel.Visibility = Visibility.Collapsed;
                     break;
             }
         }
