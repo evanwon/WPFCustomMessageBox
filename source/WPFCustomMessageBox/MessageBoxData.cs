@@ -1,5 +1,8 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Drawing;
+using System.Threading;
 using System.Windows;
+using System.Windows.Media;
 
 namespace WPFCustomMessageBox
 {
@@ -17,6 +20,8 @@ namespace WPFCustomMessageBox
 
         public MessageBoxImage Image { get; set; } = MessageBoxImage.None;
 
+        public ImageSource Icon { get; set; }
+
         public string YesButtonCaption { get; set; }
 
         public string NoButtonCaption { get; set; }
@@ -26,6 +31,19 @@ namespace WPFCustomMessageBox
         public string OkButtonCaption { get; set; }
 
         public MessageBoxResult Result { get; set; } = MessageBoxResult.None;
+
+        private static Dictionary<MessageBoxImage, Icon> IconLookup { get; } = new Dictionary<MessageBoxImage, Icon>()
+        {
+            { MessageBoxImage.None, null },
+            { MessageBoxImage.Hand, SystemIcons.Hand },
+            { MessageBoxImage.Stop, SystemIcons.Hand },
+            { MessageBoxImage.Error, SystemIcons.Hand },
+            { MessageBoxImage.Question, SystemIcons.Question },
+            { MessageBoxImage.Exclamation, SystemIcons.Exclamation },
+            { MessageBoxImage.Warning, SystemIcons.Warning },
+            { MessageBoxImage.Asterisk, SystemIcons.Information },
+            { MessageBoxImage.Information, SystemIcons.Information }
+        };
 
         #endregion
 
@@ -56,7 +74,9 @@ namespace WPFCustomMessageBox
 
         private void ShowMessageBoxSTA()
         {
-            var msg = new CustomMessageBoxWindow(this.Message, this.Caption, this.Buttons, this.Image);
+            this.Icon = this.Icon ?? MessageBoxData.IconLookup[this.Image].ToImageSource();
+
+            var msg = new CustomMessageBoxWindow(this.Message, this.Caption, this.Buttons, this.Icon);
 
             msg.YesButtonText = this.YesButtonCaption ?? msg.YesButtonText;
             msg.NoButtonText = this.NoButtonCaption ?? msg.NoButtonText;

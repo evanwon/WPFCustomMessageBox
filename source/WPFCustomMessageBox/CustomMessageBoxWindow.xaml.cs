@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows;
+using System.Windows.Media;
 
 namespace WPFCustomMessageBox
 {
@@ -88,15 +89,19 @@ namespace WPFCustomMessageBox
 
         #region Constructor
 
-        internal CustomMessageBoxWindow(string message, string caption, MessageBoxButton button, MessageBoxImage image)
+        internal CustomMessageBoxWindow(string message, string caption, MessageBoxButton button, ImageSource icon)
         {
             this.InitializeComponent();
 
             this.Message = message;
             this.Caption = caption;
-            this.Image_MessageBox.Visibility = Visibility.Collapsed;
 
-            this.DisplayImage(image);
+            if (icon != null) // Display image/icon
+            {
+                this.Image_MessageBox.Source = icon;
+                this.Image_MessageBox.Visibility = Visibility.Visible;
+            }
+
             this.DisplayButtons(button);
         }
 
@@ -148,40 +153,6 @@ namespace WPFCustomMessageBox
                     this.Button_Cancel.Visibility = Visibility.Collapsed;
                     break;
             }
-        }
-
-        private void DisplayImage(MessageBoxImage image)
-        {
-            Icon icon;
-
-            switch (image)
-            {
-                case MessageBoxImage.None:
-                    return;
-
-                case MessageBoxImage.Exclamation:       // Enumeration value 48 - also covers "Warning"
-                    icon = SystemIcons.Exclamation;
-                    break;
-
-                case MessageBoxImage.Error:             // Enumeration value 16, also covers "Hand" and "Stop"
-                    icon = SystemIcons.Hand;
-                    break;
-
-                case MessageBoxImage.Information:       // Enumeration value 64 - also covers "Asterisk"
-                    icon = SystemIcons.Information;
-                    break;
-
-                case MessageBoxImage.Question:
-                    icon = SystemIcons.Question;
-                    break;
-
-                default:
-                    icon = SystemIcons.Information;
-                    break;
-            }
-
-            this.Image_MessageBox.Source = icon.ToImageSource();
-            this.Image_MessageBox.Visibility = Visibility.Visible;
         }
 
         private void Button_OK_Click(object sender, RoutedEventArgs e)
