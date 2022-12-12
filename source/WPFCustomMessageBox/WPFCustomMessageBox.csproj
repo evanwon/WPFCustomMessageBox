@@ -45,13 +45,13 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomMessageBoxWindow.xaml.cs">
-      <DependentUpon>CustomMessageBoxWindow.xaml</DependentUpon>
+    <Compile Include="CustomMessageBoxView.xaml.cs">
+      <DependentUpon>CustomMessageBoxView.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomMessageBox.cs" />
-    <Compile Include="MessageBoxData.cs" />
+    <Compile Include="MessageBoxModel.cs" />
     <Compile Include="Util.cs" />
-    <Page Include="CustomMessageBoxWindow.xaml">
+    <Page Include="CustomMessageBoxView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
