@@ -17,8 +17,8 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="White" MinHeight="69">
             <DockPanel>
-                <Image Width="32" Height="32" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="30,0,0,0" Source="{Binding CustomImage}" Visibility="{Binding ImageVisibility}"/>
-                <TextBlock TextWrapping="Wrap" MaxWidth="500" Width="Auto" VerticalAlignment="Center" Margin="12,20,41,15" Text="{Binding Message}" />
+                <Image Width="32" Height="32" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="30,20,0,0" Source="{Binding CustomImage}" Visibility="{Binding ImageVisibility}" VerticalAlignment="Top"/>
+                <TextBlock TextWrapping="Wrap" MaxWidth="500" Width="Auto" VerticalAlignment="Center" Margin="12,11,41,15" Text="{Binding Message}"/>
             </DockPanel>
         </Grid>
         <Grid Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" MinHeight="49">

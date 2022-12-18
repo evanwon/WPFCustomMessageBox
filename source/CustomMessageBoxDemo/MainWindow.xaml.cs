@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows;
+using System.Linq;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 using WPFCustomMessageBox;
@@ -20,13 +21,13 @@ namespace CustomMessageBoxDemo
 
         private void button_StandardMessage_Click(object sender, RoutedEventArgs e)
         {
-            var result = MessageBox.Show("Hello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\n");
+            var result = MessageBox.Show(string.Join("\n", Enumerable.Repeat("Hello World!", 12)));
             Debug.WriteLine(result.ToString());
         }
 
         private void button_StandardMessageNew_Click(object sender, RoutedEventArgs e)
         {
-            var result = CustomMessageBox.Show("Hello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\nHello World!\nHello World\n");
+            var result = CustomMessageBox.Show(string.Join("\n", Enumerable.Repeat("Hello World!", 12)));
             Debug.WriteLine(result.ToString());
         }
 
