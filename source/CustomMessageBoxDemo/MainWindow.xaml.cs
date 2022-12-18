@@ -1,11 +1,11 @@
 ﻿using System.Diagnostics;
 using System.Drawing;
-using System.Windows;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 using WPFCustomMessageBox;
-using System.Threading.Tasks;
 
 namespace CustomMessageBoxDemo
 {
@@ -16,7 +16,7 @@ namespace CustomMessageBoxDemo
     {
         public MainWindow()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private void button_StandardMessage_Click(object sender, RoutedEventArgs e)
@@ -113,7 +113,7 @@ namespace CustomMessageBoxDemo
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

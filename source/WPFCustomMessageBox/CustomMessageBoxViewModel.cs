@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 
 namespace WPFCustomMessageBox
@@ -10,7 +9,7 @@ namespace WPFCustomMessageBox
     {
         public double MaxWidth { get; set; } = 470;
 
-        public double MaxHeight { get; set; } = 900;
+        public double MaxHeight { get; set; } = 600;
 
         public string Caption
         {

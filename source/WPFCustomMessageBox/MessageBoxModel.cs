@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
@@ -198,8 +197,10 @@ namespace WPFCustomMessageBox
             msg.Closed += this.MessageBoxClosed;
 
             this.RequestClosingEvent = null;
-            this.RequestClosingEvent += new Action(() => {
-                msg?.Close(); msg = null;
+            this.RequestClosingEvent += new Action(() =>
+            {
+                msg?.Close();
+                msg = null;
             });
 
             msg.ShowDialog();

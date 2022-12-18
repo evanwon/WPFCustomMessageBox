@@ -7,7 +7,6 @@
 namespace WPFCustomMessageBox
 {
     using System.Windows;
-    using System.Windows.Media;
 
     /// <summary>
     /// Displays a message box.
