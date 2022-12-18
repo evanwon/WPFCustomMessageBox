@@ -26,11 +26,16 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>bin\Debug\WPFCustomMessageBox.XML</DocumentationFile>
+    <DefineConstants>DEBUG</DefineConstants>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>CS0067</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>bin\Release\WPFCustomMessageBox.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>CS0067</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -49,7 +54,9 @@
       <DependentUpon>CustomMessageBoxView.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomMessageBox.cs" />
+    <Compile Include="CustomMessageBoxViewModel.cs" />
     <Compile Include="MessageBoxModel.cs" />
+    <Compile Include="ButtonClickCommand.cs" />
     <Compile Include="Util.cs" />
     <Page Include="CustomMessageBoxView.xaml">
       <SubType>Designer</SubType>
