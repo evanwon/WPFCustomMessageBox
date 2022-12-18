@@ -35,12 +35,57 @@ namespace WPFCustomMessageBox
         }
 
         /// <summary>
+        /// Minimum button width
+        /// </summary>
+        public double MinButtonWidth
+        {
+            get => this.ViewModel.ButtonMinWidth;
+            set => this.ViewModel.ButtonMinWidth = Math.Min(Math.Max(value, 0), 10000);
+        }
+
+        /// <summary>
         /// Maximum button width
         /// </summary>
         public double MaxButtonWidth
         {
             get => this.ViewModel.ButtonMaxWidth;
             set => this.ViewModel.ButtonMaxWidth = Math.Min(Math.Max(value, 0), 10000);
+        }
+
+        /// <summary>
+        /// Cancel button width (double.NaN for 'Auto')
+        /// </summary>
+        public double CancelButtonWidth
+        {
+            get => this.ViewModel.CancelButtonWidth;
+            set => this.ViewModel.CancelButtonWidth = Math.Min(Math.Max(value, 0), 10000);
+        }
+
+        /// <summary>
+        /// No button width (double.NaN for 'Auto')
+        /// </summary>
+        public double NoButtonWidth
+        {
+            get => this.ViewModel.NoButtonWidth;
+            set => this.ViewModel.NoButtonWidth = Math.Min(Math.Max(value, 0), 10000);
+        }
+
+        /// <summary>
+        /// Yes button width (double.NaN for 'Auto')
+        /// </summary>
+        public double YesButtonWidth
+        {
+            get => this.ViewModel.YesButtonWidth;
+            set => this.ViewModel.YesButtonWidth = Math.Min(Math.Max(value, 0), 10000);
+        }
+
+        /// <summary>
+        /// OK button width (double.NaN for 'Auto')
+        /// </summary>
+        public double OkButtonWidth
+        {
+            get => this.ViewModel.OkButtonWidth;
+            set => this.ViewModel.OkButtonWidth = Math.Min(Math.Max(value, 0), 10000);
         }
 
         /// <summary>
@@ -84,24 +129,40 @@ namespace WPFCustomMessageBox
         public ImageSource CustomImage { get; set; }
 
         /// <summary>
-        /// Caption of the 'Yes' button
+        /// Caption of the 'Cancel' button
         /// </summary>
-        public string YesButtonCaption { get; set; } = "Yes";
+        public string CancelButtonCaption
+        {
+            get => this.ViewModel.CancelButtonCaption.TryRemoveKeyboardAccellerator();
+            set => this.ViewModel.CancelButtonCaption = value.TryAddKeyboardAccellerator();
+        }
 
         /// <summary>
         /// Caption of the 'No' button
         /// </summary>
-        public string NoButtonCaption { get; set; } = "No";
+        public string NoButtonCaption
+        {
+            get => this.ViewModel.NoButtonCaption.TryRemoveKeyboardAccellerator();
+            set => this.ViewModel.NoButtonCaption = value.TryAddKeyboardAccellerator();
+        }
 
         /// <summary>
-        /// Caption of the 'Cancel' button
+        /// Caption of the 'Yes' button
         /// </summary>
-        public string CancelButtonCaption { get; set; } = "Cancel";
+        public string YesButtonCaption
+        {
+            get => this.ViewModel.YesButtonCaption.TryRemoveKeyboardAccellerator();
+            set => this.ViewModel.YesButtonCaption = value.TryAddKeyboardAccellerator();
+        }
 
         /// <summary>
         /// Caption of the 'OK' button
         /// </summary>
-        public string OkButtonCaption { get; set; } = "OK";
+        public string OkButtonCaption
+        {
+            get => this.ViewModel.OkButtonCaption.TryRemoveKeyboardAccellerator();
+            set => this.ViewModel.OkButtonCaption = value.TryAddKeyboardAccellerator();
+        }
 
         /// <summary>
         /// Result of the MessageBox
@@ -134,9 +195,10 @@ namespace WPFCustomMessageBox
         {
             this.ViewModel = new CustomMessageBoxViewModel()
             {
-                FirstButtonClick = new ButtonClickCommand(this.SetResult),
-                SecondButtonClick = new ButtonClickCommand(this.SetResult),
-                ThirdButtonClick = new ButtonClickCommand(this.SetResult)
+                CancelButtonClick = new ButtonClickCommand(this.SetResult, MessageBoxResult.Cancel),
+                NoButtonClick = new ButtonClickCommand(this.SetResult, MessageBoxResult.No),
+                YesButtonClick = new ButtonClickCommand(this.SetResult, MessageBoxResult.Yes),
+                OkButtonClick = new ButtonClickCommand(this.SetResult, MessageBoxResult.OK)
             };
         }
 
@@ -195,6 +257,16 @@ namespace WPFCustomMessageBox
             msg.Owner = this.Owner;
             msg.DataContext = this.ViewModel;
             msg.Closed += this.MessageBoxClosed;
+            
+            // Handle focus (using non MVVM approach here because MVVM would be just far too complicated in this case)
+            if(this.ViewModel.OkButtonVisibility == Visibility.Visible)
+            {
+                msg.OkButton.Focus();
+            }
+            else if(this.ViewModel.YesButtonVisibility == Visibility.Visible)
+            {
+                msg.YesButton.Focus();
+            }
 
             this.RequestClosingEvent = null;
             this.RequestClosingEvent += new Action(() =>
@@ -215,33 +287,23 @@ namespace WPFCustomMessageBox
             switch (this.Buttons)
             {
                 case MessageBoxButton.OKCancel:
-                    this.ViewModel.FirstButtonCaption = this.OkButtonCaption.TryAddKeyboardAccellerator();
-                    this.ViewModel.SecondButtonCaption = this.OkButtonCaption.TryAddKeyboardAccellerator();
-                    this.ViewModel.FirstButtonClick.Parameter = MessageBoxResult.OK;
-                    this.ViewModel.SecondButtonClick.Parameter = MessageBoxResult.Cancel;
-                    this.ViewModel.FirstButtonDock = Dock.Left;
+                    this.ViewModel.OkButtonVisibility = Visibility.Visible;
+                    this.ViewModel.CancelButtonVisibility = Visibility.Visible;
                     break;
 
                 case MessageBoxButton.YesNoCancel:
-                    this.ViewModel.FirstButtonCaption = this.YesButtonCaption.TryAddKeyboardAccellerator();
-                    this.ViewModel.SecondButtonCaption = this.NoButtonCaption.TryAddKeyboardAccellerator();
-                    this.ViewModel.ThirdButtonCaption = this.CancelButtonCaption.TryAddKeyboardAccellerator();
-                    this.ViewModel.FirstButtonClick.Parameter = MessageBoxResult.Yes;
-                    this.ViewModel.SecondButtonClick.Parameter = MessageBoxResult.No;
-                    this.ViewModel.ThirdButtonClick.Parameter = MessageBoxResult.Cancel;
+                    this.ViewModel.CancelButtonVisibility = Visibility.Visible;
+                    this.ViewModel.NoButtonVisibility = Visibility.Visible;
+                    this.ViewModel.YesButtonVisibility = Visibility.Visible;
                     break;
 
                 case MessageBoxButton.YesNo:
-                    this.ViewModel.FirstButtonCaption = this.YesButtonCaption.TryAddKeyboardAccellerator();
-                    this.ViewModel.SecondButtonCaption = this.NoButtonCaption.TryAddKeyboardAccellerator();
-                    this.ViewModel.FirstButtonClick.Parameter = MessageBoxResult.Yes;
-                    this.ViewModel.SecondButtonClick.Parameter = MessageBoxResult.No;
+                    this.ViewModel.NoButtonVisibility = Visibility.Visible;
+                    this.ViewModel.YesButtonVisibility = Visibility.Visible;
                     break;
 
                 default: //MessageBoxButton.OK
-                    this.ViewModel.FirstButtonCaption = this.OkButtonCaption.TryAddKeyboardAccellerator();
-                    this.ViewModel.FirstButtonClick.Parameter = MessageBoxResult.OK;
-                    this.ViewModel.FirstButtonDock = Dock.Left;
+                    this.ViewModel.OkButtonVisibility = Visibility.Visible;
                     break;
             }
         }

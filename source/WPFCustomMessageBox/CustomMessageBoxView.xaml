@@ -4,8 +4,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowStartupLocation="CenterScreen"
         WindowStyle="SingleBorderWindow"
-        Icon="blankicon.ico"
-        ShowInTaskbar="False" Topmost="True" SizeToContent="WidthAndHeight"
+        Icon="{Binding CustomImage}"
+        ShowInTaskbar="True" Topmost="True" SizeToContent="WidthAndHeight"
         TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="ClearType" UseLayoutRounding="True"
         Title="{Binding Caption}" MaxHeight="{Binding MaxHeight}" MinHeight="155" MaxWidth="{Binding MaxWidth}" MinWidth="154">
     <!-- todo: The TextOptions properties above fix a minor blurry image issue, but are only compatible with >= .NET 4.0 -->
@@ -25,27 +25,33 @@
         <Grid Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" MinHeight="49">
             <DockPanel Margin="5,0">
 
-                <!-- Third button -->
-                <Button Name="ThirdButton" MinWidth="88" MaxWidth="{Binding ButtonMaxWidth}" Height="26" Margin="5,0" HorizontalAlignment="Right" Visibility="{Binding ThirdButtonVisibility}"
-                        DockPanel.Dock="Right" Command="{Binding ThirdButtonClick}">
-                    <Label Padding="0" Margin="10,0" Content="{Binding ThirdButtonCaption}"/>
+                <!-- Cancel button -->
+                <Button Name="CancelButton" MinWidth="{Binding ButtonMinWidth}" MaxWidth="{Binding ButtonMaxWidth}" Height="26" Width="{Binding CancelButtonWidth}" Margin="5,0" HorizontalAlignment="Right" Visibility="{Binding CancelButtonVisibility}"
+                        DockPanel.Dock="Right" Command="{Binding CancelButtonClick}">
+                    <Label Padding="0" Margin="10,0" Content="{Binding CancelButtonCaption}"/>
                 </Button>
-                <!-- Third button -->
+                <!-- Cancel button -->
 
-                <!-- Second button -->
-                <Button Name="SecondButton" MinWidth="88" MaxWidth="{Binding ButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding SecondButtonVisibility}"
-                        DockPanel.Dock="Right" Command="{Binding SecondButtonClick}">
-                    <Label Padding="0" Margin="10,0" Content="{Binding SecondButtonCaption}"/>
+                <!-- No button -->
+                <Button Name="NoButton" MinWidth="{Binding ButtonMinWidth}" MaxWidth="{Binding ButtonMaxWidth}" Height="26" Width="{Binding NoButtonWidth}" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding NoButtonVisibility}"
+                        DockPanel.Dock="Right" Command="{Binding NoButtonClick}">
+                    <Label Padding="0" Margin="10,0" Content="{Binding NoButtonCaption}"/>
                 </Button>
-                <!-- Second button -->
+                <!-- No button -->
 
-                <!-- First button -->
-                <Button Name="FirstButton" MinWidth="88" MaxWidth="{Binding ButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right"
-                        DockPanel.Dock="{Binding FirstButtonDock}" Command="{Binding FirstButtonClick}"
-                        FocusManager.FocusedElement="{Binding RelativeSource={RelativeSource Self}}">
-                    <Label Padding="0" Margin="10,0" Content="{Binding FirstButtonCaption}"/>
+                <!-- Yes button -->
+                <Button Name="YesButton" MinWidth="{Binding ButtonMinWidth}" MaxWidth="{Binding ButtonMaxWidth}" Height="26" Width="{Binding YesButtonWidth}" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding YesButtonVisibility}"
+                        DockPanel.Dock="Right" Command="{Binding YesButtonClick}">
+                    <Label Padding="0" Margin="10,0" Content="{Binding YesButtonCaption}"/>
                 </Button>
-                <!-- First button -->
+                <!-- Yes button -->
+
+                <!-- OK button -->
+                <Button Name="OkButton" MinWidth="{Binding ButtonMinWidth}" MaxWidth="{Binding ButtonMaxWidth}" Height="26" Width="{Binding OkButtonWidth}" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding OkButtonVisibility}"
+                        DockPanel.Dock="Left" Command="{Binding OkButtonClick}">
+                    <Label Padding="0" Margin="10,0" Content="{Binding OkButtonCaption}"/>
+                </Button>
+                <!-- OK button -->
 
             </DockPanel>
         </Grid>

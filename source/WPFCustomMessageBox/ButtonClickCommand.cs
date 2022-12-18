@@ -10,22 +10,23 @@ namespace WPFCustomMessageBox
 
         public Action<MessageBoxResult> Action { get; set; }
 
-        public MessageBoxResult Parameter { get; set; } = MessageBoxResult.None;
+        public MessageBoxResult Result { get; set; } = MessageBoxResult.None;
 
         public ButtonClickCommand()
         {
 
         }
 
-        public ButtonClickCommand(Action<MessageBoxResult> action)
+        public ButtonClickCommand(Action<MessageBoxResult> action, MessageBoxResult result)
         {
             this.Action = action;
+            this.Result = result;
         }
 
         public bool CanExecute(object parameter)
             => (this.Action != null);
 
         public void Execute(object parameter)
-            => this.Action.Invoke(this.Parameter);
+            => this.Action.Invoke(this.Result);
     }
 }

@@ -42,9 +42,24 @@ namespace WPFCustomMessageBox
             const string accellerator = "_";            // This is the default WPF accellerator symbol - used to be & in WinForms
 
             // If it already contains an accellerator, do nothing
-            if (input.Contains(accellerator)) return input;
+            if (input.StartsWith(accellerator) == true) return input;
 
             return accellerator + input;
+        }
+
+        /// <summary>
+        /// Removes the acellerator added by TryAddKeyboardAccellerator()
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        internal static string TryRemoveKeyboardAccellerator(this string input)
+        {
+            const string accellerator = "_";            // This is the default WPF accellerator symbol - used to be & in WinForms
+
+            // If it already contains an accellerator, do nothing
+            if (input.StartsWith(accellerator) == false) return input;
+
+            return input.Remove(0, 1);
         }
     }
 }

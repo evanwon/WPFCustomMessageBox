@@ -1,15 +1,12 @@
 ﻿using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace WPFCustomMessageBox
 {
     internal class CustomMessageBoxViewModel : INotifyPropertyChanged
     {
-        public double MaxWidth { get; set; } = 470;
-
-        public double MaxHeight { get; set; } = 600;
+        #region Properties that can be updated while the message box is open
 
         public string Caption
         {
@@ -22,10 +19,6 @@ namespace WPFCustomMessageBox
         }
         private string caption = "Message";
 
-        public ImageSource CustomImage { get; set; }
-
-        public Visibility ImageVisibility => (this.CustomImage is null) ? Visibility.Collapsed : Visibility.Visible;
-
         public string Message
         {
             get => this.message;
@@ -37,25 +30,91 @@ namespace WPFCustomMessageBox
         }
         private string message = string.Empty;
 
+        public string CancelButtonCaption
+        {
+            get => this.cancelButtonCaption;
+            set
+            {
+                this.cancelButtonCaption = value;
+                this.OnPropertyChanged(nameof(this.CancelButtonCaption));
+            }
+        }
+        private string cancelButtonCaption = "_Cancel";
+
+        public string NoButtonCaption
+        {
+            get => this.noButtonCaption;
+            set
+            {
+                this.noButtonCaption = value;
+                this.OnPropertyChanged(nameof(this.NoButtonCaption));
+            }
+        }
+        private string noButtonCaption = "_No";
+
+        public string YesButtonCaption
+        {
+            get => this.yesButtonCaption;
+            set
+            {
+                this.yesButtonCaption = value;
+                this.OnPropertyChanged(nameof(this.YesButtonCaption));
+            }
+        }
+        private string yesButtonCaption = "_Yes";
+
+        public string OkButtonCaption
+        {
+            get => this.okButtonCaption;
+            set
+            {
+                this.okButtonCaption = value;
+                this.OnPropertyChanged(nameof(this.OkButtonCaption));
+            }
+        }
+        private string okButtonCaption = "_OK";
+
+        #endregion
+
+        #region Fixed properties
+
+        public double MaxWidth { get; set; } = 470;
+
+        public double MaxHeight { get; set; } = 600;
+
+        public ImageSource CustomImage { get; set; }
+
+        public Visibility ImageVisibility => (this.CustomImage is null) ? Visibility.Collapsed : Visibility.Visible;
+
+        public double ButtonMinWidth { get; set; } = 88;
+
         public double ButtonMaxWidth { get; set; } = 160;
 
-        public string FirstButtonCaption { get; set; } = string.Empty;
+        public double CancelButtonWidth { get; set; } = double.NaN;
 
-        public string SecondButtonCaption { get; set; } = string.Empty;
+        public double NoButtonWidth { get; set; } = double.NaN;
 
-        public string ThirdButtonCaption { get; set; } = string.Empty;
+        public double YesButtonWidth { get; set; } = double.NaN;
 
-        public Visibility SecondButtonVisibility => string.IsNullOrEmpty(this.SecondButtonCaption) ? Visibility.Collapsed : Visibility.Visible;
+        public double OkButtonWidth { get; set; } = double.NaN;
 
-        public Visibility ThirdButtonVisibility => string.IsNullOrEmpty(this.ThirdButtonCaption) ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility CancelButtonVisibility { get; set; } = Visibility.Collapsed;
 
-        public ButtonClickCommand FirstButtonClick { get; set; }
+        public Visibility NoButtonVisibility { get; set; } = Visibility.Collapsed;
 
-        public ButtonClickCommand SecondButtonClick { get; set; }
+        public Visibility YesButtonVisibility { get; set; } = Visibility.Collapsed;
 
-        public ButtonClickCommand ThirdButtonClick { get; set; }
+        public Visibility OkButtonVisibility { get; set; } = Visibility.Collapsed;
 
-        public Dock FirstButtonDock { get; set; }
+        public ButtonClickCommand CancelButtonClick { get; set; }
+
+        public ButtonClickCommand NoButtonClick { get; set; }
+
+        public ButtonClickCommand YesButtonClick { get; set; }
+
+        public ButtonClickCommand OkButtonClick { get; set; }
+
+        #endregion
 
         #region INotifyPropertyChanged
 
