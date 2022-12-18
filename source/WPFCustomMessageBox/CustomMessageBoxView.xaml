@@ -5,8 +5,7 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="SingleBorderWindow"
         Icon="blankicon.ico"
-        ShowInTaskbar="False" Topmost="True"
-        ResizeMode="NoResize" SizeToContent="WidthAndHeight"
+        ShowInTaskbar="False" Topmost="True" SizeToContent="WidthAndHeight"
         TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="ClearType" UseLayoutRounding="True"
         Title="{Binding Caption}" MaxHeight="{Binding MaxHeight}" MinHeight="155" MaxWidth="{Binding MaxWidth}" MinWidth="154">
     <!-- todo: The TextOptions properties above fix a minor blurry image issue, but are only compatible with >= .NET 4.0 -->
@@ -18,7 +17,9 @@
         <Grid Grid.Row="0" Background="White" MinHeight="69">
             <DockPanel>
                 <Image Width="32" Height="32" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="30,20,0,0" Source="{Binding CustomImage}" Visibility="{Binding ImageVisibility}" VerticalAlignment="Top"/>
-                <TextBlock TextWrapping="Wrap" MaxWidth="500" Width="Auto" VerticalAlignment="Center" Margin="12,11,41,15" Text="{Binding Message}"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <TextBlock TextWrapping="Wrap" MaxWidth="500" Width="Auto" VerticalAlignment="Center" Margin="12,11,41,15" Text="{Binding Message}"/>
+                </ScrollViewer>
             </DockPanel>
         </Grid>
         <Grid Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" MinHeight="49">
