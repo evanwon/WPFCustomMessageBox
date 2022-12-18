@@ -1,11 +1,11 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Drawing;
 using System.Windows;
 using System.Linq;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 using WPFCustomMessageBox;
+using System.Threading.Tasks;
 
 namespace CustomMessageBoxDemo
 {
@@ -90,6 +90,27 @@ namespace CustomMessageBoxDemo
             Debug.WriteLine(result.ToString());
         }
 
+        private void button_SelfUpdatingMessage_Click(object sender, RoutedEventArgs e)
+        {
+            var stopwatch = Stopwatch.StartNew();
+            var msgBox = new MessageBoxModel()
+            {
+                Message = $"This message box is open since {(int)stopwatch.Elapsed.TotalSeconds}s",
+                Caption = $"Open since {(int)stopwatch.Elapsed.TotalSeconds}s",
+                Buttons = MessageBoxButton.OK
+            };
+            var task = msgBox.Show();
+
+            while (task.Status == TaskStatus.Running)
+            {
+                msgBox.Message = $"This message box is open since {(int)stopwatch.Elapsed.TotalSeconds}s";
+                msgBox.Caption = $"Open since {(int)stopwatch.Elapsed.TotalSeconds}s";
+                Task.Delay(100).Wait();
+            }
+
+            Debug.WriteLine(task.Result.ToString());
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             
@@ -97,7 +118,7 @@ namespace CustomMessageBoxDemo
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = CustomMessageBox.ShowYesNoCancel(
+            var result = CustomMessageBox.ShowYesNoCancel(
                 "You have unsaved changes.",
                 "Unsaved Changes!",
                 "Evan Wondrasek",
@@ -105,7 +126,7 @@ namespace CustomMessageBoxDemo
                 "Cancel",
                 MessageBoxImage.Exclamation);
 
-            Debug.WriteLine(result);
+            Debug.WriteLine(result.ToString());
         }
     }
 }
