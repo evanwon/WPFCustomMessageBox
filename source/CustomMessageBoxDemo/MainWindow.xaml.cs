@@ -80,8 +80,9 @@ namespace CustomMessageBoxDemo
 
             var msgBox = new MessageBoxModel()
             {
-                Message = "This is a message with a windows shield beside it.",
+                Message = "This is a wide message with a windows shield beside it.",
                 Caption = "This is a caption",
+                Width = 900,
                 Buttons = MessageBoxButton.YesNo,
                 CustomImage = shield
             };

@@ -80,7 +80,11 @@ namespace WPFCustomMessageBox
 
         public double MaxWidth { get; set; } = 470;
 
+        public double MinWidth { get; set; } = 154;
+
         public double MaxHeight { get; set; } = 600;
+
+        public double MinHeight { get; set; } = 155;
 
         public ImageSource CustomImage { get; set; }
 

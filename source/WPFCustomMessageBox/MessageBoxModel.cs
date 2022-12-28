@@ -26,12 +26,38 @@ namespace WPFCustomMessageBox
         }
 
         /// <summary>
+        /// Window height
+        /// </summary>
+        public double Height
+        {
+            get => (this.ViewModel.MinHeight == this.ViewModel.MaxHeight) ? this.ViewModel.MinHeight : double.NaN;
+            set
+            {
+                this.MaxHeight = value;
+                this.ViewModel.MinHeight = this.MaxHeight;
+            }
+        }
+
+        /// <summary>
         /// Maximum window width
         /// </summary>
         public double MaxWidth
         {
             get => this.ViewModel.MaxWidth;
             set => this.ViewModel.MaxWidth = Math.Min(Math.Max(value, 0), 10000);
+        }
+
+        /// <summary>
+        /// Window width
+        /// </summary>
+        public double Width
+        {
+            get => (this.ViewModel.MinWidth == this.ViewModel.MaxWidth) ? this.ViewModel.MinWidth : double.NaN;
+            set
+            {
+                this.MaxWidth = value;
+                this.ViewModel.MinWidth = this.MaxWidth;
+            }
         }
 
         /// <summary>

@@ -7,7 +7,7 @@
         Icon="{Binding CustomImage}"
         ShowInTaskbar="True" Topmost="True" SizeToContent="WidthAndHeight"
         TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="ClearType" UseLayoutRounding="True"
-        Title="{Binding Caption}" MaxHeight="{Binding MaxHeight}" MinHeight="155" MaxWidth="{Binding MaxWidth}" MinWidth="154">
+        Title="{Binding Caption}" MaxHeight="{Binding MaxHeight}" MinHeight="{Binding MinHeight}" MaxWidth="{Binding MaxWidth}" MinWidth="{Binding MinWidth}">
     <!-- todo: The TextOptions properties above fix a minor blurry image issue, but are only compatible with >= .NET 4.0 -->
     <Grid>
         <Grid.RowDefinitions>
