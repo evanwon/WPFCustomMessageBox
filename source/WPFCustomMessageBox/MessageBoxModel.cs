@@ -65,7 +65,7 @@ namespace WPFCustomMessageBox
         public double MinButtonWidth
         {
             get => this.ViewModel.ButtonMinWidth;
-            set => this.ViewModel.ButtonMinWidth = Math.Min(Math.Max(value, 30), 10000);
+            set => this.ViewModel.ButtonMinWidth = Math.Min(Math.Max(value, 26), 10000);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace WPFCustomMessageBox
         public double MaxButtonWidth
         {
             get => this.ViewModel.ButtonMaxWidth;
-            set => this.ViewModel.ButtonMaxWidth = Math.Min(Math.Max(value, 30), 10000);
+            set => this.ViewModel.ButtonMaxWidth = Math.Min(Math.Max(value, 26), 10000);
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace WPFCustomMessageBox
         public double CancelButtonWidth
         {
             get => this.ViewModel.CancelButtonWidth;
-            set => this.ViewModel.CancelButtonWidth = Math.Min(Math.Max(value, 30), 10000);
+            set => this.ViewModel.CancelButtonWidth = Math.Min(Math.Max(value, 26), 10000);
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace WPFCustomMessageBox
         public double NoButtonWidth
         {
             get => this.ViewModel.NoButtonWidth;
-            set => this.ViewModel.NoButtonWidth = Math.Min(Math.Max(value, 30), 10000);
+            set => this.ViewModel.NoButtonWidth = Math.Min(Math.Max(value, 26), 10000);
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace WPFCustomMessageBox
         public double YesButtonWidth
         {
             get => this.ViewModel.YesButtonWidth;
-            set => this.ViewModel.YesButtonWidth = Math.Min(Math.Max(value, 30), 10000);
+            set => this.ViewModel.YesButtonWidth = Math.Min(Math.Max(value, 26), 10000);
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace WPFCustomMessageBox
         public double OkButtonWidth
         {
             get => this.ViewModel.OkButtonWidth;
-            set => this.ViewModel.OkButtonWidth = Math.Min(Math.Max(value, 30), 10000);
+            set => this.ViewModel.OkButtonWidth = Math.Min(Math.Max(value, 26), 10000);
         }
 
         /// <summary>
