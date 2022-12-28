@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace WPFCustomMessageBox
@@ -22,7 +21,7 @@ namespace WPFCustomMessageBox
         public double MaxHeight
         {
             get => this.ViewModel.MaxHeight;
-            set => this.ViewModel.MaxHeight = Math.Min(Math.Max(value, 0), 10000);
+            set => this.ViewModel.MaxHeight = Math.Min(Math.Max(value, 155), 10000);
         }
 
         /// <summary>
@@ -44,7 +43,7 @@ namespace WPFCustomMessageBox
         public double MaxWidth
         {
             get => this.ViewModel.MaxWidth;
-            set => this.ViewModel.MaxWidth = Math.Min(Math.Max(value, 0), 10000);
+            set => this.ViewModel.MaxWidth = Math.Min(Math.Max(value, 154), 10000);
         }
 
         /// <summary>
@@ -66,7 +65,7 @@ namespace WPFCustomMessageBox
         public double MinButtonWidth
         {
             get => this.ViewModel.ButtonMinWidth;
-            set => this.ViewModel.ButtonMinWidth = Math.Min(Math.Max(value, 0), 10000);
+            set => this.ViewModel.ButtonMinWidth = Math.Min(Math.Max(value, 30), 10000);
         }
 
         /// <summary>
@@ -75,7 +74,7 @@ namespace WPFCustomMessageBox
         public double MaxButtonWidth
         {
             get => this.ViewModel.ButtonMaxWidth;
-            set => this.ViewModel.ButtonMaxWidth = Math.Min(Math.Max(value, 0), 10000);
+            set => this.ViewModel.ButtonMaxWidth = Math.Min(Math.Max(value, 30), 10000);
         }
 
         /// <summary>
@@ -84,7 +83,7 @@ namespace WPFCustomMessageBox
         public double CancelButtonWidth
         {
             get => this.ViewModel.CancelButtonWidth;
-            set => this.ViewModel.CancelButtonWidth = Math.Min(Math.Max(value, 0), 10000);
+            set => this.ViewModel.CancelButtonWidth = Math.Min(Math.Max(value, 30), 10000);
         }
 
         /// <summary>
@@ -93,7 +92,7 @@ namespace WPFCustomMessageBox
         public double NoButtonWidth
         {
             get => this.ViewModel.NoButtonWidth;
-            set => this.ViewModel.NoButtonWidth = Math.Min(Math.Max(value, 0), 10000);
+            set => this.ViewModel.NoButtonWidth = Math.Min(Math.Max(value, 30), 10000);
         }
 
         /// <summary>
@@ -102,7 +101,7 @@ namespace WPFCustomMessageBox
         public double YesButtonWidth
         {
             get => this.ViewModel.YesButtonWidth;
-            set => this.ViewModel.YesButtonWidth = Math.Min(Math.Max(value, 0), 10000);
+            set => this.ViewModel.YesButtonWidth = Math.Min(Math.Max(value, 30), 10000);
         }
 
         /// <summary>
@@ -111,7 +110,7 @@ namespace WPFCustomMessageBox
         public double OkButtonWidth
         {
             get => this.ViewModel.OkButtonWidth;
-            set => this.ViewModel.OkButtonWidth = Math.Min(Math.Max(value, 0), 10000);
+            set => this.ViewModel.OkButtonWidth = Math.Min(Math.Max(value, 30), 10000);
         }
 
         /// <summary>
@@ -283,13 +282,13 @@ namespace WPFCustomMessageBox
             msg.Owner = this.Owner;
             msg.DataContext = this.ViewModel;
             msg.Closed += this.MessageBoxClosed;
-            
+
             // Handle focus (using non MVVM approach here because MVVM would be just far too complicated in this case)
-            if(this.ViewModel.OkButtonVisibility == Visibility.Visible)
+            if (this.ViewModel.OkButtonVisibility == Visibility.Visible)
             {
                 msg.OkButton.Focus();
             }
-            else if(this.ViewModel.YesButtonVisibility == Visibility.Visible)
+            else if (this.ViewModel.YesButtonVisibility == Visibility.Visible)
             {
                 msg.YesButton.Focus();
             }
