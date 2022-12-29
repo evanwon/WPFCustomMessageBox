@@ -13,6 +13,14 @@ namespace WPFCustomMessageBox
     /// </summary>
     public class MessageBoxModel
     {
+        #region Constants
+
+        private static double ButtonMinWidth => 26;
+
+        private static double ButtonMaxWidth => 2000;
+
+        #endregion
+
         #region Properties
 
         /// <summary>
@@ -60,21 +68,63 @@ namespace WPFCustomMessageBox
         }
 
         /// <summary>
-        /// Minimum button width
-        /// </summary>
-        public double MinButtonWidth
-        {
-            get => this.ViewModel.ButtonMinWidth;
-            set => this.ViewModel.ButtonMinWidth = Math.Min(Math.Max(value, 26), 10000);
-        }
-
-        /// <summary>
-        /// Maximum button width
+        /// Maximum button width.
+        /// This overwrites custom button widths.
+        /// If both should be changed, please set the max button width first and then change the width of selected buttons.
         /// </summary>
         public double MaxButtonWidth
         {
-            get => this.ViewModel.ButtonMaxWidth;
-            set => this.ViewModel.ButtonMaxWidth = Math.Min(Math.Max(value, 26), 10000);
+            get
+            {
+                if ((this.ViewModel.CancelButtonMaxWidth == this.ViewModel.OkButtonMaxWidth)
+                    && (this.ViewModel.NoButtonMaxWidth == this.ViewModel.OkButtonMaxWidth)
+                    && (this.ViewModel.YesButtonMaxWidth == this.ViewModel.OkButtonMaxWidth))
+                {
+                    return this.ViewModel.OkButtonMaxWidth;
+                }
+                return double.NaN;
+            }
+            set
+            {
+                this.ViewModel.OkButtonMaxWidth = Math.Min(Math.Max(value, ButtonMinWidth), ButtonMaxWidth);
+                this.ViewModel.OkButtonMinWidth = Math.Min(this.ViewModel.OkButtonMinWidth, this.ViewModel.OkButtonMaxWidth);
+                this.ViewModel.CancelButtonMaxWidth = this.ViewModel.OkButtonMaxWidth;
+                this.ViewModel.CancelButtonMinWidth = Math.Min(this.ViewModel.CancelButtonMinWidth, this.ViewModel.OkButtonMaxWidth);
+                this.ViewModel.NoButtonMaxWidth = this.ViewModel.OkButtonMaxWidth;
+                this.ViewModel.NoButtonMinWidth = Math.Min(this.ViewModel.NoButtonMinWidth, this.ViewModel.OkButtonMaxWidth);
+                this.ViewModel.YesButtonMaxWidth = this.ViewModel.OkButtonMaxWidth;
+                this.ViewModel.YesButtonMinWidth = Math.Min(this.ViewModel.YesButtonMinWidth, this.ViewModel.OkButtonMaxWidth);
+            }
+        }
+
+        /// <summary>
+        /// Minimum button width.
+        /// This overwrites custom button widths.
+        /// If both should be changed, please set the min button width first and then change the width of selected buttons.
+        /// </summary>
+        public double MinButtonWidth
+        {
+            get
+            {
+                if ((this.ViewModel.CancelButtonMinWidth == this.ViewModel.OkButtonMinWidth)
+                    && (this.ViewModel.NoButtonMinWidth == this.ViewModel.OkButtonMinWidth)
+                    && (this.ViewModel.YesButtonMinWidth == this.ViewModel.OkButtonMinWidth))
+                {
+                    return this.ViewModel.OkButtonMinWidth;
+                }
+                return double.NaN;
+            }
+            set
+            {
+                this.ViewModel.OkButtonMinWidth = Math.Min(Math.Max(value, ButtonMinWidth), ButtonMaxWidth);
+                this.ViewModel.OkButtonMaxWidth = Math.Max(this.ViewModel.OkButtonMaxWidth, this.ViewModel.OkButtonMinWidth);
+                this.ViewModel.CancelButtonMinWidth = this.ViewModel.OkButtonMinWidth;
+                this.ViewModel.CancelButtonMaxWidth = Math.Min(this.ViewModel.CancelButtonMaxWidth, this.ViewModel.OkButtonMinWidth);
+                this.ViewModel.NoButtonMinWidth = this.ViewModel.OkButtonMinWidth;
+                this.ViewModel.NoButtonMaxWidth = Math.Min(this.ViewModel.NoButtonMaxWidth, this.ViewModel.OkButtonMinWidth);
+                this.ViewModel.YesButtonMinWidth = this.ViewModel.OkButtonMinWidth;
+                this.ViewModel.YesButtonMaxWidth = Math.Min(this.ViewModel.YesButtonMaxWidth, this.ViewModel.OkButtonMinWidth);
+            }
         }
 
         /// <summary>
@@ -82,8 +132,12 @@ namespace WPFCustomMessageBox
         /// </summary>
         public double CancelButtonWidth
         {
-            get => this.ViewModel.CancelButtonWidth;
-            set => this.ViewModel.CancelButtonWidth = Math.Min(Math.Max(value, 26), 10000);
+            get => (this.ViewModel.CancelButtonMinWidth == this.ViewModel.CancelButtonMaxWidth) ? this.ViewModel.CancelButtonMinWidth : double.NaN;
+            set
+            {
+                this.ViewModel.CancelButtonMaxWidth = Math.Min(Math.Max(value, ButtonMinWidth), ButtonMaxWidth);
+                this.ViewModel.CancelButtonMinWidth = this.ViewModel.CancelButtonMaxWidth;
+            }
         }
 
         /// <summary>
@@ -91,8 +145,12 @@ namespace WPFCustomMessageBox
         /// </summary>
         public double NoButtonWidth
         {
-            get => this.ViewModel.NoButtonWidth;
-            set => this.ViewModel.NoButtonWidth = Math.Min(Math.Max(value, 26), 10000);
+            get => (this.ViewModel.NoButtonMinWidth == this.ViewModel.NoButtonMaxWidth) ? this.ViewModel.NoButtonMinWidth : double.NaN;
+            set
+            {
+                this.ViewModel.NoButtonMaxWidth = Math.Min(Math.Max(value, ButtonMinWidth), ButtonMaxWidth);
+                this.ViewModel.NoButtonMinWidth = this.ViewModel.NoButtonMaxWidth;
+            }
         }
 
         /// <summary>
@@ -100,8 +158,12 @@ namespace WPFCustomMessageBox
         /// </summary>
         public double YesButtonWidth
         {
-            get => this.ViewModel.YesButtonWidth;
-            set => this.ViewModel.YesButtonWidth = Math.Min(Math.Max(value, 26), 10000);
+            get => (this.ViewModel.YesButtonMinWidth == this.ViewModel.YesButtonMaxWidth) ? this.ViewModel.YesButtonMinWidth : double.NaN;
+            set
+            {
+                this.ViewModel.YesButtonMaxWidth = Math.Min(Math.Max(value, ButtonMinWidth), ButtonMaxWidth);
+                this.ViewModel.YesButtonMinWidth = this.ViewModel.YesButtonMaxWidth;
+            }
         }
 
         /// <summary>
@@ -109,8 +171,12 @@ namespace WPFCustomMessageBox
         /// </summary>
         public double OkButtonWidth
         {
-            get => this.ViewModel.OkButtonWidth;
-            set => this.ViewModel.OkButtonWidth = Math.Min(Math.Max(value, 26), 10000);
+            get => (this.ViewModel.OkButtonMinWidth == this.ViewModel.OkButtonMaxWidth) ? this.ViewModel.OkButtonMinWidth : double.NaN;
+            set
+            {
+                this.ViewModel.OkButtonMaxWidth = Math.Min(Math.Max(value, ButtonMinWidth), ButtonMaxWidth);
+                this.ViewModel.OkButtonMinWidth = this.ViewModel.OkButtonMaxWidth;
+            }
         }
 
         /// <summary>

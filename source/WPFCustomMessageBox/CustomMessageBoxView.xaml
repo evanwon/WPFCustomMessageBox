@@ -26,28 +26,28 @@
             <DockPanel Margin="5,0">
 
                 <!-- Cancel button -->
-                <Button Name="CancelButton" MinWidth="{Binding ButtonMinWidth}" MaxWidth="{Binding ButtonMaxWidth}" Height="26" Width="{Binding CancelButtonWidth}" Margin="5,0" HorizontalAlignment="Right" Visibility="{Binding CancelButtonVisibility}"
+                <Button Name="CancelButton" MinWidth="{Binding CancelButtonMinWidth}" MaxWidth="{Binding CancelButtonMaxWidth}" Height="26" Margin="5,0" HorizontalAlignment="Right" Visibility="{Binding CancelButtonVisibility}"
                         DockPanel.Dock="Right" Command="{Binding CancelButtonClick}">
                     <Label Padding="0" Margin="10,0" Content="{Binding CancelButtonCaption}"/>
                 </Button>
                 <!-- Cancel button -->
 
                 <!-- No button -->
-                <Button Name="NoButton" MinWidth="{Binding ButtonMinWidth}" MaxWidth="{Binding ButtonMaxWidth}" Height="26" Width="{Binding NoButtonWidth}" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding NoButtonVisibility}"
+                <Button Name="NoButton" MinWidth="{Binding NoButtonMinWidth}" MaxWidth="{Binding NoButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding NoButtonVisibility}"
                         DockPanel.Dock="Right" Command="{Binding NoButtonClick}">
                     <Label Padding="0" Margin="10,0" Content="{Binding NoButtonCaption}"/>
                 </Button>
                 <!-- No button -->
 
                 <!-- Yes button -->
-                <Button Name="YesButton" MinWidth="{Binding ButtonMinWidth}" MaxWidth="{Binding ButtonMaxWidth}" Height="26" Width="{Binding YesButtonWidth}" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding YesButtonVisibility}"
+                <Button Name="YesButton" MinWidth="{Binding YesButtonMinWidth}" MaxWidth="{Binding YesButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding YesButtonVisibility}"
                         DockPanel.Dock="Right" Command="{Binding YesButtonClick}">
                     <Label Padding="0" Margin="10,0" Content="{Binding YesButtonCaption}"/>
                 </Button>
                 <!-- Yes button -->
 
                 <!-- OK button -->
-                <Button Name="OkButton" MinWidth="{Binding ButtonMinWidth}" MaxWidth="{Binding ButtonMaxWidth}" Height="26" Width="{Binding OkButtonWidth}" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding OkButtonVisibility}"
+                <Button Name="OkButton" MinWidth="{Binding OkButtonMinWidth}" MaxWidth="{Binding OkButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding OkButtonVisibility}"
                         DockPanel.Dock="Left" Command="{Binding OkButtonClick}">
                     <Label Padding="0" Margin="10,0" Content="{Binding OkButtonCaption}"/>
                 </Button>

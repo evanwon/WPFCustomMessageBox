@@ -6,6 +6,14 @@ namespace WPFCustomMessageBox
 {
     internal class CustomMessageBoxViewModel : INotifyPropertyChanged
     {
+        #region Constants
+
+        private static double ButtonMinWidth => 88;
+
+        private static double ButtonMaxWidth => 160;
+
+        #endregion
+
         #region Properties that can be updated while the message box is open
 
         public string Caption
@@ -90,17 +98,21 @@ namespace WPFCustomMessageBox
 
         public Visibility ImageVisibility => (this.CustomImage is null) ? Visibility.Collapsed : Visibility.Visible;
 
-        public double ButtonMinWidth { get; set; } = 88;
+        public double CancelButtonMinWidth { get; set; } = ButtonMinWidth;
 
-        public double ButtonMaxWidth { get; set; } = 160;
+        public double CancelButtonMaxWidth { get; set; } = ButtonMaxWidth;
 
-        public double CancelButtonWidth { get; set; } = double.NaN;
+        public double NoButtonMinWidth { get; set; } = ButtonMinWidth;
 
-        public double NoButtonWidth { get; set; } = double.NaN;
+        public double NoButtonMaxWidth { get; set; } = ButtonMaxWidth;
 
-        public double YesButtonWidth { get; set; } = double.NaN;
+        public double YesButtonMinWidth { get; set; } = ButtonMinWidth;
 
-        public double OkButtonWidth { get; set; } = double.NaN;
+        public double YesButtonMaxWidth { get; set; } = ButtonMaxWidth;
+
+        public double OkButtonMinWidth { get; set; } = ButtonMinWidth;
+
+        public double OkButtonMaxWidth { get; set; } = ButtonMaxWidth;
 
         public Visibility CancelButtonVisibility { get; set; } = Visibility.Collapsed;
 

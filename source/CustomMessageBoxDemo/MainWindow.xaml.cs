@@ -83,6 +83,8 @@ namespace CustomMessageBoxDemo
                 Message = "This is a wide message with a windows shield beside it.",
                 Caption = "This is a caption",
                 Width = 900,
+                MinButtonWidth = 40,
+                YesButtonWidth = 300,
                 Buttons = MessageBoxButton.YesNo,
                 CustomImage = shield
             };
