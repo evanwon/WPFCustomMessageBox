@@ -20,12 +20,12 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult Show(string messageBoxText)
         {
-            var msgData = new MessageBoxData()
+            var msgData = new MessageBoxModel()
             {
                 Message = messageBoxText
             };
 
-            return msgData.ShowMessageBox();
+            return msgData.ShowDialog();
         }
 
         /// <summary>
@@ -36,13 +36,13 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult Show(string messageBoxText, string caption)
         {
-            var msgData = new MessageBoxData()
+            var msgData = new MessageBoxModel()
             {
                 Message = messageBoxText,
                 Caption = caption
             };
 
-            return msgData.ShowMessageBox();
+            return msgData.ShowDialog();
         }
 
         /// <summary>
@@ -53,13 +53,13 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult Show(Window owner, string messageBoxText)
         {
-            var msgData = new MessageBoxData()
+            var msgData = new MessageBoxModel()
             {
                 Message = messageBoxText,
                 Owner = owner
             };
 
-            return msgData.ShowMessageBox();
+            return msgData.ShowDialog();
         }
 
         /// <summary>
@@ -71,14 +71,14 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult Show(Window owner, string messageBoxText, string caption)
         {
-            var msgData = new MessageBoxData()
+            var msgData = new MessageBoxModel()
             {
                 Message = messageBoxText,
                 Caption = caption,
                 Owner = owner
             };
 
-            return msgData.ShowMessageBox();
+            return msgData.ShowDialog();
         }
 
         /// <summary>
@@ -90,14 +90,14 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button)
         {
-            var msgData = new MessageBoxData()
+            var msgData = new MessageBoxModel()
             {
                 Message = messageBoxText,
                 Caption = caption,
                 Buttons = button
             };
 
-            return msgData.ShowMessageBox();
+            return msgData.ShowDialog();
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button, MessageBoxImage icon)
         {
-            var msgData = new MessageBoxData()
+            var msgData = new MessageBoxModel()
             {
                 Message = messageBoxText,
                 Caption = caption,
@@ -118,7 +118,7 @@ namespace WPFCustomMessageBox
                 Image = icon
             };
 
-            return msgData.ShowMessageBox();
+            return msgData.ShowDialog();
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowOK(string messageBoxText, string caption, string okButtonText)
         {
-            var msgData = new MessageBoxData()
+            var msgData = new MessageBoxModel()
             {
                 Message = messageBoxText,
                 Caption = caption,
@@ -138,7 +138,7 @@ namespace WPFCustomMessageBox
                 OkButtonCaption = okButtonText
             };
 
-            return msgData.ShowMessageBox();
+            return msgData.ShowDialog();
         }
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowOK(string messageBoxText, string caption, string okButtonText, MessageBoxImage icon)
         {
-            var msgData = new MessageBoxData()
+            var msgData = new MessageBoxModel()
             {
                 Message = messageBoxText,
                 Caption = caption,
@@ -160,7 +160,7 @@ namespace WPFCustomMessageBox
                 OkButtonCaption = okButtonText
             };
 
-            return msgData.ShowMessageBox();
+            return msgData.ShowDialog();
         }
 
         /// <summary>
@@ -174,7 +174,7 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowOKCancel(string messageBoxText, string caption, string okButtonText, string cancelButtonText)
         {
-            var msgData = new MessageBoxData()
+            var msgData = new MessageBoxModel()
             {
                 Message = messageBoxText,
                 Caption = caption,
@@ -183,7 +183,7 @@ namespace WPFCustomMessageBox
                 CancelButtonCaption = cancelButtonText
             };
 
-            return msgData.ShowMessageBox();
+            return msgData.ShowDialog();
         }
 
         /// <summary>
@@ -198,7 +198,7 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowOKCancel(string messageBoxText, string caption, string okButtonText, string cancelButtonText, MessageBoxImage icon)
         {
-            var msgData = new MessageBoxData()
+            var msgData = new MessageBoxModel()
             {
                 Message = messageBoxText,
                 Caption = caption,
@@ -208,7 +208,7 @@ namespace WPFCustomMessageBox
                 CancelButtonCaption = cancelButtonText
             };
 
-            return msgData.ShowMessageBox();
+            return msgData.ShowDialog();
         }
 
         /// <summary>
@@ -222,7 +222,7 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowYesNo(string messageBoxText, string caption, string yesButtonText, string noButtonText)
         {
-            var msgData = new MessageBoxData()
+            var msgData = new MessageBoxModel()
             {
                 Message = messageBoxText,
                 Caption = caption,
@@ -231,7 +231,7 @@ namespace WPFCustomMessageBox
                 NoButtonCaption = noButtonText
             };
 
-            return msgData.ShowMessageBox();
+            return msgData.ShowDialog();
         }
 
         /// <summary>
@@ -246,7 +246,7 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowYesNo(string messageBoxText, string caption, string yesButtonText, string noButtonText, MessageBoxImage icon)
         {
-            var msgData = new MessageBoxData()
+            var msgData = new MessageBoxModel()
             {
                 Message = messageBoxText,
                 Caption = caption,
@@ -256,7 +256,7 @@ namespace WPFCustomMessageBox
                 NoButtonCaption = noButtonText
             };
 
-            return msgData.ShowMessageBox();
+            return msgData.ShowDialog();
         }
 
         /// <summary>
@@ -271,7 +271,7 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowYesNoCancel(string messageBoxText, string caption, string yesButtonText, string noButtonText, string cancelButtonText)
         {
-            var msgData = new MessageBoxData()
+            var msgData = new MessageBoxModel()
             {
                 Message = messageBoxText,
                 Caption = caption,
@@ -281,7 +281,7 @@ namespace WPFCustomMessageBox
                 CancelButtonCaption = cancelButtonText
             };
 
-            return msgData.ShowMessageBox();
+            return msgData.ShowDialog();
         }
 
         /// <summary>
@@ -297,7 +297,7 @@ namespace WPFCustomMessageBox
         /// <returns>A System.Windows.MessageBoxResult value that specifies which message box button is clicked by the user.</returns>
         public static MessageBoxResult ShowYesNoCancel(string messageBoxText, string caption, string yesButtonText, string noButtonText, string cancelButtonText, MessageBoxImage icon)
         {
-            var msgData = new MessageBoxData()
+            var msgData = new MessageBoxModel()
             {
                 Message = messageBoxText,
                 Caption = caption,
@@ -308,7 +308,7 @@ namespace WPFCustomMessageBox
                 CancelButtonCaption = cancelButtonText
             };
 
-            return msgData.ShowMessageBox();
+            return msgData.ShowDialog();
         }
     }
 }
